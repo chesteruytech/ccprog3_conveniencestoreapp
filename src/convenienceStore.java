@@ -27,7 +27,33 @@ class Product{
 
 public class convenienceStore {
     static void main() {
+        Scanner main = new Scanner(System.in);
+
         // Switch case for the Customer and Employee
-        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to U&P's Convenience Store Application!");
+        System.out.println("version a.0.0.2\n");
+        System.out.println("Please select your option:");
+        System.out.println("[C]ustomer | [E]mployee\n");
+        System.out.println("You're a/n: ");
+        char identifyAs = main.next().charAt(0);
+
+        switch(identifyAs){
+            case 'C': case 'c':
+                break;
+            case 'E': case 'e':
+                Scanner employed = new Scanner(System.in);
+
+                System.out.println("Please enter your employee ID: ");
+                int employeeID = employed.nextInt();
+                if(employeeID > 7800000 && employeeID < 7900000)
+                    System.out.println("Invalid employee ID");
+                else
+                    System.out.println("Invalid employee ID (really)");
+
+                break;
+            default:
+                System.out.println("You entered an invalid option. The application will now exit.");
+                break;
+        }
     }
 }
