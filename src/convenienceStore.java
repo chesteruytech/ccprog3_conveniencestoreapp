@@ -57,7 +57,7 @@ class Shelf{
 
     public void showProducts(){
         for(Product product : products){
-            System.out.println(product.showProductInformation());
+            product.showProductInformation();
         }
     }
 
