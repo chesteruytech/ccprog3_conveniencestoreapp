@@ -7,9 +7,8 @@ class Product{
     private float price;
     private int quantity;
 
-    public Product(String name, String category, String brand, String variant, int quantity, float price){
+    public Product(String name, String brand, String variant, int quantity, float price){
         this.name = name;
-        this.category = category;
         this.brand = brand;
         this.variant = variant;
         this.quantity = quantity;
@@ -34,6 +33,43 @@ class Product{
     }
 }
 
+class Food extends Product{
+public Food(String name, String brand, String variant, int quantity, float price){
+    super();
+    this.category = "Food";
+  }
+
+}
+
+class Beverages extends Product{
+public Beverages(String name, String brand, String variant, int quantity, float price){
+    super();
+    this.category = "Beverages";
+  }
+}
+
+class Toiletries extends Product{
+public Toiletries(String name, String brand, String variant, int quantity, float price){
+    super();
+    this.category = "Toiletries";
+  }
+}
+
+class Cleaning_Products extends Product{
+public Cleaning_Products(String name, String brand, String variant, int quantity, float price){
+    super();
+    this.category = "Cleaning_Products";
+  }
+}
+
+class Medications extends Product{
+public Medications(String name, String brand, String variant, int quantity, float price){
+    super();
+    this.category = "Medications";
+  }
+}
+
+
 class Employee{
     String name;
     ArrayList<Product> stockInventory;
@@ -51,9 +87,10 @@ class Shelf{
     private int shelf_number;
     private ArrayList<Product> products;
 
-    public void addProduct(Product product){
-        products.add(product);
-    } 
+    public Shelf(int shelf_number){
+        this.shelf_number = shelf_number;
+    }
+    
 
     public void showProducts(){
         for(Product product : products){
@@ -65,6 +102,8 @@ class Shelf{
         return shelf_number;
     }
 }
+
+
 
 public class convenienceStore {
     static void main() {
