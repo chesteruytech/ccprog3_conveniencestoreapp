@@ -33,7 +33,24 @@ class Product{
     }
 }
 
+class Shelf{
+    private int shelf_number;
+    private ArrayList<Product> products;
 
+    public void addProduct(Product product){
+        products.add(product);
+    } 
+
+    public void showProducts(){
+        for(Product product : products){
+            System.out.println(product.showProductInformation());
+        }
+    }
+
+    public int getShelfNumber(){
+        return shelf_number;
+    }
+}
 
 public class convenienceStore {
     static void main() {
