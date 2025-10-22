@@ -1,4 +1,5 @@
 import java.lang.System;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class Product{
@@ -33,6 +34,19 @@ class Product{
     }
 }
 
+class Employee{
+    String name;
+    ArrayList<Product> stockInventory;
+
+    Employee(String name){
+        this.name = name;
+    }
+
+    String getName(){
+        return name;
+    }
+}
+
 class Shelf{
     private int shelf_number;
     private ArrayList<Product> products;
@@ -55,6 +69,7 @@ class Shelf{
 public class convenienceStore {
     static void main() {
         Scanner main = new Scanner(System.in);
+        ArrayList<Employee> employees = new ArrayList<>();
 
         // Switch case for the Customer and Employee
         System.out.println("Welcome to U&P's Convenience Store Application!");
@@ -70,12 +85,12 @@ public class convenienceStore {
             case 'E': case 'e':
                 Scanner employed = new Scanner(System.in);
 
-                System.out.println("Please enter your employee ID: ");
-                int employeeID = employed.nextInt();
-                if(employeeID > 7800000 && employeeID < 7900000)
-                    System.out.println("Invalid employee ID");
+                System.out.println("Please enter your name: ");
+                String employee = employed.nextLine();
+                if(employees.contains(new Employee(employee)))
+                    System.out.println("Invalid employee change");
                 else
-                    System.out.println("Invalid employee ID (really)");
+                    System.out.println("Invalid employee name (really)");
 
                 break;
             default:
