@@ -71,14 +71,30 @@ public Medications(String name, String brand, String variant, int quantity, floa
 
 
 class Employee{
-    String name;
-    ArrayList<Product> stockInventory;
+    private String name;
+    private ArrayList<Product> stockInventory;
 
-    Employee(String name){
+    public Employee(String name){
         this.name = name;
     }
 
-    String getName(){
+    public addProduct(Product stock){
+        stockInventory.add(stock)
+    }
+
+    public reStock(Shelf shelf){
+        for (int i = 0; i < stockInventory.size(); i++){
+            shelf.getProducts().add(stockInventory.get(i))
+        }
+    }
+
+    public reStock(Shelf shelf, int noOfProductStock){
+        for (int i = 0; i < noOfProductStock; i++){
+            shelf.getProducts().add(stockInventory.get(i))
+        }
+    }
+
+    public String getName(){
         return name;
     }
 }
@@ -100,6 +116,10 @@ class Shelf{
 
     public int getShelfNumber(){
         return shelf_number;
+    }
+
+    public ArrayList<Product> getProducts(){
+        return products;
     }
 }
 
