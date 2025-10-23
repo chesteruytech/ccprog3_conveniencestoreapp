@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 class Product{
     private String name;
-    private String category;
+    protected String category;
     private String brand;
     private String variant;
     private float price;
@@ -189,36 +189,32 @@ class Shelf{
     }
 }
 
-
 class Customer{
-   private String name;
-   private boolean membership;
-   private int age;
-   private ArrayList<Product> products_got;
-   private float money;
+    private String name;
+    private boolean membership;
+    private int age;
+    private ArrayList<Product> products_got;
+    private float money;
 
+    public void selectProduct(Shelf shelf, Product product){
+        products_got.add(product);
+    }
 
+    public ArrayList<Product> getAllProducts(){
+        return products_got;
+    }
 
-   public void selectProduct(Shelf shelf, Product product){
-       products_got.add(product);
-   } 
+    public int getAge(){
+        return age;
+    }
 
-   public ArrayList<Product> getAllProducts(){
-       return products_got;
-   }
+    public boolean getMembership(){
+        return membership;
+    }
 
-   public int getAge(){
-       return age;
-   }
-
-   public boolean getMembership(){
-       return membership;
-   }  
-
-   public float payUp(){
-       in
-   }
-
+    public float payUp(){
+        return money;
+    }
 }
 
 class Checkout{
@@ -227,34 +223,32 @@ class Checkout{
     private Customer customer;
     private Receipt receipt_printed;
 
-
     public float computeDiscountLogic(){
         if (customer.getAge() >= 60 && customer.getMembership() == true){  // Senior and Member
-            return 0.30;
+            return 0.30f;
         } else if (customer.getAge() <= 60 && customer.getMembership() == true) {  // Member only
-            return 0.10;
+            return 0.10f;
         } else if (customer.getAge() >= 60 && customer.getMembership() == false) {  // Senior only
-            return 0.20;
+            return 0.20f;
         } else {
-            return 0.00;
+            return 0.00f;
         }
     }
 
     public float CalculateTotal(){
         for(int i = 0; i < customer.getAllProducts().size(); i++){
-           total_cost += customer.getAllProducts.get(i).multiplyProductByQuantity;
+           total_cost += customer.getAllProducts().get(i).multiplyProductByQuantity();
         }
+
         return total_cost - (this.computeDiscountLogic() * total_cost);
     }
-
- 
 
     public float giveChange(){
         return amount_given - this.CalculateTotal();
     }
 
     public Receipt printReceipt(){
-        receipt_printed = new Receipt(customer.getAllProducts(), CalculateTotal(),  amount_given, giveChange(), );
+        receipt_printed = new Receipt(customer.getAllProducts(), CalculateTotal(), amount_given, giveChange());
         return receipt_printed;
     }
 }
@@ -264,14 +258,14 @@ class Receipt{
     private float total_cost;
     private float received_amount;
     private float change;
-    private String timestamp;
+//    private float timestamp;
 
-    public Receipt(ArrayList<Product> purchases, float total_cost, float received_amount, float change, String timestamp){
+    public Receipt(ArrayList<Product> purchases, float total_cost, float received_amount, float change){
         this.purchases = purchases;
         this.total_cost = total_cost;
         this.received_amount = received_amount;
         this.change = change;
-        this.timestamp = timestamp;
+//        this.timestamp = timestamp;
     }
 
     public void issueReceipt(){
@@ -283,8 +277,8 @@ class Receipt{
         System.out.println("Total Cost: " + total_cost);
         System.out.println("Received Amount: " + received_amount);
         System.out.println("Change: " + change);
-        System.out.println("Time Stamped: " + timestamp);
-   }
+//        System.out.println("Time Stamped: " + timestamp);
+    }
 }
 
 class Store_System{
@@ -296,11 +290,7 @@ class Store_System{
 
     public void addEmployee(Employee employee){
         employees.add(employee);
-    } 
-
-    public
-
-    
+    }
 }
 
 public class convenienceStore {
