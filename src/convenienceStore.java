@@ -224,11 +224,11 @@ class Checkout{
     private Receipt receipt_printed;
 
     public float computeDiscountLogic(){
-        if (customer.getAge() >= 60 && customer.getMembership() == true){  // Senior and Member
+        if (customer.getAge() >= 60 && customer.getMembership()){  // Senior and Member
             return 0.30f;
-        } else if (customer.getAge() <= 60 && customer.getMembership() == true) {  // Member only
+        } else if (customer.getAge() <= 60 && customer.getMembership()) {  // Member only
             return 0.10f;
-        } else if (customer.getAge() >= 60 && customer.getMembership() == false) {  // Senior only
+        } else if (customer.getAge() >= 60 && !customer.getMembership()) {  // Senior only
             return 0.20f;
         } else {
             return 0.00f;
@@ -282,14 +282,18 @@ class Receipt{
 }
 
 class Store_System{
-    private ArrayList<Employee> employees = new ArrayList<Employee>();
-    private ArrayList<Product> products = new ArrayList<Product>();
+    private ArrayList<Employee> employees = new ArrayList<>();
+    private ArrayList<Product> products = new ArrayList<>();
     private int total_products;
-    private ArrayList<Shelf> shelves = new ArrayList<Shelf>();
+    private ArrayList<Shelf> shelves = new ArrayList<>();
     private Checkout checkout;
 
     public void addEmployee(Employee employee){
         employees.add(employee);
+    }
+
+    public ArrayList<Employee> getEmployees(){
+        return employees;
     }
 }
 
@@ -315,30 +319,34 @@ public class convenienceStore {
                 break;
             case 'E': case 'e':
                 Scanner employed = new Scanner(System.in);
+                Store_System system = new Store_System();
+                ArrayList<Employee> authorizedEmployeeList = system.getEmployees();
 
-                System.out.println("Please enter your name: ");
+                System.out.println("Please enter your name for verification: ");
                 String employee = employed.nextLine();
 
-                if(employees.contains(employee)){
-                    Scanner stockInventory = new Scanner(System.in);
+                for(int i = 0; i < authorizedEmployeeList.size(); i++){
+                    if(authorizedEmployeeList.get(i).getName().equals(employee)){
+                        Scanner stockInventory = new Scanner(System.in);
 
-                    System.out.println("Welcome to U&P, " + employee + "!\n");
-                    System.out.println("What would you like to do?");
-                    System.out.println("[A]dd Product to Shelf");
-                    System.out.println("[R]estock Product");
-                    char productMod = stockInventory.next().charAt(0);
+                        System.out.println("Welcome to U&P, " + employee + "!\n");
+                        System.out.println("What would you like to do?");
+                        System.out.println("[A]dd Product to Shelf");
+                        System.out.println("[R]estock Product");
+                        char productMod = stockInventory.next().charAt(0);
 
-                    switch(productMod){
-                        case 'A': case 'a':
-                            Employee.addProduct();
-                            break;
-                        case 'R': case 'r':
-                            Employee.reStock();
-                            break;
-                    }
+                        switch(productMod){
+                            case 'A': case 'a':
+                                Employee.addProduct();
+                                break;
+                            case 'R': case 'r':
+                                Employee.reStock();
+                                break;
+                        }
+                    }else
+                        System.out.println("Invalid employee name. Please try again.");
                 }
-                else
-                    System.out.println("Invalid employee name (really)");
+
                 break;
             default:
                 System.out.println("You entered an invalid option. The application will now exit.");
