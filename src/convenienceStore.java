@@ -189,13 +189,15 @@ class Shelf{
     }
 }
 
-
 class Customer{
    private String name;
    private boolean membership;
    private int age;
    private ArrayList<Product> products_got;
 
+   public Customer(String name){
+       this.name = name;
+   }
 
    public void selectProduct(Shelf shelf, Product product){
        products_got.add(product);
@@ -211,33 +213,45 @@ class Customer{
 
    public boolean getMembership(){
        return membership;
-   }  
-
+   }
 }
 
 class Checkout{
     private float amount_given;
+    private float outstandingBalance;
     private Customer customer;
 
+    public Checkout(float amount_given, float outstandingBalance, Customer customer){
+        this.amount_given = amount_given;
+        this.outstandingBalance = outstandingBalance;
+        this.customer = customer;
+    }
 
-    public double computeDiscountLogic(){
+    public float computeDiscountLogic(){
         if (customer.getAge() >= 60 && customer.getMembership() == true){  // Senior and Member
-            return 0.30;
+            return 0.30f;
         } else if (customer.getAge() <= 60 && customer.getMembership() == true) {  // Member only
-            return 0.10;
+            return 0.10f;
         } else if (customer.getAge() >= 60 && customer.getMembership() == false) {  // Senior only
-            return 0.20;
+            return 0.20f;
         } else {
-            return 0.00;
+            return 0.00f;
         }
     }
 
-    public double CalculateTotal(){
-
+    public float calculateTotal(){
+        return ;
     }
 
-    public double giveChange(){
+    public float giveChange(){
+        Scanner inputTenderedCash = new Scanner(System.in);
 
+        System.out.println("Enter amount given: ");
+        float inputAmount = inputTenderedCash.nextFloat();
+
+        amount_given = inputAmount;
+
+        return amount_given - /* Placeholder for calculateTotal() */;
     }
 }
 
@@ -262,20 +276,20 @@ class Receipt{
 }
 
 class Store_System{
-    private ArrayList<Employee> employees = new ArrayList<Employee>();
+    private static ArrayList<Employee> employees = new ArrayList<Employee>();
     private ArrayList<Product> products = new ArrayList<Product>();
     private static int total_products;
     private ArrayList<Shelf> shelves = new ArrayList<Shelf>();
     private Checkout checkout;
 
-    public void addEmployee(Employee employee){
+    public static void addEmployee(Employee employee){
         employees.add(employee);
-    } 
+    }
 }
 
 public class convenienceStore {
     public static void main() {
-        Store_System convenience = new Store_System(); 
+        Store_System convenience = new Store_System();
         Scanner main = new Scanner(System.in);
         Employee Jose = new Employee("Jose Perez");
         Employee Chester = new Employee("Chester Aldrin Uy");
@@ -299,7 +313,7 @@ public class convenienceStore {
                 System.out.println("Please enter your name: ");
                 String employee = employed.nextLine();
 
-                if(employees.contains(employee)){
+                if(employee.equals(convenience)){
                     Scanner stockInventory = new Scanner(System.in);
 
                     System.out.println("Welcome to U&P, " + employee + "!\n");
