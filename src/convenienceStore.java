@@ -3,7 +3,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class Product{
-    private String name, category, brand, variant;
+    private String name;
+    String category;
+    private String brand;
+    private String variant;
     private float price;
     private int quantity;
 
@@ -94,13 +97,13 @@ class Medications extends Product{
 
 class Employee{
     String name;
-    private ArrayList<Product> stockInventory;
+    private static ArrayList<Product> stockInventory;
 
     public Employee(String name){
         this.name = name;
     }
 
-    public void addProduct(){
+    public static void addProduct(){
         Scanner createProduct = new Scanner(System.in);
 
         System.out.println("Product name: ");
@@ -122,38 +125,40 @@ class Employee{
         stockInventory.set(index, foodHolder);
     }
 
-     public void categorizeToBev(int index){
+    public void categorizeToBev(int index){
         Beverages bevHolder = new Beverages(stockInventory.get(index).getName(),  stockInventory.get(index).getBrand(), stockInventory.get(index).getVariant(), stockInventory.get(index).getQuantity(), stockInventory.get(index).getPrice());
         stockInventory.set(index, bevHolder);
     }
 
-     public void categorizeToToil(int index){
+    public void categorizeToToil(int index){
         Toiletries toilHolder = new Toiletries(stockInventory.get(index).getName(),  stockInventory.get(index).getBrand(), stockInventory.get(index).getVariant(), stockInventory.get(index).getQuantity(), stockInventory.get(index).getPrice());
         stockInventory.set(index, toilHolder);
     }
 
-     public void categorizeToClean(int index){
+    public void categorizeToClean(int index){
         Cleaning_Products cleanHolder = new Cleaning_Products(stockInventory.get(index).getName(),  stockInventory.get(index).getBrand(), stockInventory.get(index).getVariant(), stockInventory.get(index).getQuantity(), stockInventory.get(index).getPrice());
         stockInventory.set(index, cleanHolder);
     }
 
-     public void categorizeToMed(int index){
+    public void categorizeToMed(int index){
         Medications medHolder = new Medications(stockInventory.get(index).getName(),  stockInventory.get(index).getBrand(), stockInventory.get(index).getVariant(), stockInventory.get(index).getQuantity(), stockInventory.get(index).getPrice());
         stockInventory.set(index, medHolder);
     }
 
-    public void reStock(Shelf shelf){
+    public static void reStock(Shelf shelf){
         for (int i = 0; i < stockInventory.size(); i++){
             shelf.getProducts().add(stockInventory.get(i));
         }
+
         stockInventory.clear();
     }
 
-    public void reStock(Shelf shelf, int noOfProductStock){
+    public static void reStock(Shelf shelf, int noOfProductStock){
         for (int i = 0; i < noOfProductStock; i++){
             shelf.getProducts().add(stockInventory.get(i));
-        }      
-            stockInventory.removeRange(0, noOfProductStock - 1);
+        }
+
+        stockInventory.removeRange(0, noOfProductStock - 1);
     }
 
     public String getName(){
@@ -207,8 +212,25 @@ public class convenienceStore {
 
                 System.out.println("Please enter your name: ");
                 String employee = employed.nextLine();
-                if(employees.contains(employee))
-                    System.out.println("Welcome to U&P, " + employee + "!");
+
+                if(employees.contains(employee)){
+                    Scanner stockInventory = new Scanner(System.in);
+
+                    System.out.println("Welcome to U&P, " + employee + "!\n");
+                    System.out.println("What would you like to do?");
+                    System.out.println("[A]dd Product to Shelf");
+                    System.out.println("[R]estock Product");
+                    char productMod = stockInventory.next().charAt(0);
+
+                    switch(productMod){
+                        case 'A': case 'a':
+                            Employee.addProduct();
+                            break;
+                        case 'R': case 'r':
+                            Employee.reStock();
+                            break;
+                    }
+                }
                 else
                     System.out.println("Invalid employee name (really)");
                 break;
