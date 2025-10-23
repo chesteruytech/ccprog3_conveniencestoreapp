@@ -46,6 +46,10 @@ class Product{
         return name;
     }
 
+    public String getCategory(){
+        return category;
+    }
+
     public String getBrand(){
         return brand;
     }
@@ -255,12 +259,23 @@ class Customer{
     private ArrayList<Product> products_got;
     private float money;
 
+    public Customer(String name, boolean membership, int age, float money){
+        this.name = name;
+        this.membership = membership;
+        this.age = age;
+        this.money = money;
+    }
+
     public void selectProduct(Shelf shelf, Product product){
         products_got.add(product);
     }
 
     public ArrayList<Product> getAllProducts(){
         return products_got;
+    }
+
+    public String getName(){
+        return name;
     }
 
     public int getAge(){
@@ -381,6 +396,10 @@ class Store_System{
     public ArrayList<Employee> getEmployees(){
         return employees;
     }
+
+    public ArrayList<Product> getProducts(){
+        return products;
+    }
 }
 
 /*
@@ -410,24 +429,47 @@ public class convenienceStore {
 
         switch(identifyAs){
             case 'C': case 'c':
+                Store_System inside = new Store_System();
+                ArrayList<Product> productQuery = inside.getProducts();
+
+                System.out.println("Good day, customer! What would you like to buy?\n");
+                System.out.println("Product Name | Category | Brand | Variant | Quantity | Price");
+                for(Product showProducts : productQuery) {
+                    System.out.println(showProducts.getName() + " | " + showProducts.getCategory() + " | " + showProducts.getBrand() + " | " + showProducts.getVariant() + " | " + showProducts.getPrice() + " | " );
+                }
+
+                Scanner view = new Scanner(System.in);
+                System.out.println("Copy the Product Name below to view the product: ");
+                String inputProductName = view.nextLine();
+
+                if (productQuery.get(productQuery.indexOf()).getName().equals(inputProductName)) {
+                    Product currentProduct = new Product();
+                    currentProduct.showProductInformation();
+
+                    Scanner productAction = new Scanner(System.in);
+                    System.out.println("Actions: ");
+                    System.out.println("[B]uy Now | [A]dd to Cart | [<] Back");
+                    char action = productAction.next().charAt(0);
+                }
+
                 break;
             case 'E': case 'e':
-                Scanner employed = new Scanner(System.in);
                 Store_System system = new Store_System();
                 ArrayList<Employee> authorizedEmployeeList = system.getEmployees();
 
+                Scanner employed = new Scanner(System.in);
                 System.out.print("Please enter your name for verification: ");
                 String employee = employed.nextLine();
 
                 for (Employee unp : authorizedEmployeeList) {
                     if (unp.getName().equals(employee)) {
-                        Scanner stockInventory = new Scanner(System.in);
 
                         System.out.println("Welcome to U&P, " + employee + "!\n");
                         System.out.println("What would you like to do?");
                         System.out.println("[A]dd Product to Shelf");
                         System.out.println("[R]estock Product\n");
 
+                        Scanner stockInventory = new Scanner(System.in);
                         System.out.println("Choose an option: ");
                         char productMod = stockInventory.next().charAt(0);
 
