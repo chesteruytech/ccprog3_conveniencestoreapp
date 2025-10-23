@@ -189,6 +189,35 @@ class Shelf{
     }
 }
 
+
+class Customer{
+
+}
+
+class Checkout{
+
+}
+
+class Receipt{
+    private ArrayList<Product> purchases;
+    private float total_cost;
+    private float received_amount;
+    private float change;
+    private String timestamp;
+
+    public void issueReceipt(){
+        System.out.println("Purchased Items: ")
+        for (int i = 0; i < purchases.size(); i++){
+            System.out.println(purchases.get(i).getName()  + "  Quantity: "  purchases.get(i).getQuantity() +  "   Total Price:"  purchases.get(i).multiplyProductByQuantity() );
+    }
+        System.out.println("Total Cost: " + total_cost);
+        System.out.println("Received Amount: " + received_amount);
+        System.out.println("Change: " + change);
+        System.out.println("Time Stamped: " + timestamp);
+   }
+}
+
+
 public class convenienceStore {
     static void main() {
         Scanner main = new Scanner(System.in);
