@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 class Product{
     private String name;
-    String category;
+    private String category;
     private String brand;
     private String variant;
     private float price;
@@ -189,15 +189,15 @@ class Shelf{
     }
 }
 
+
 class Customer{
    private String name;
    private boolean membership;
    private int age;
    private ArrayList<Product> products_got;
+   private float money;
 
-   public Customer(String name){
-       this.name = name;
-   }
+
 
    public void selectProduct(Shelf shelf, Product product){
        products_got.add(product);
@@ -213,45 +213,49 @@ class Customer{
 
    public boolean getMembership(){
        return membership;
+   }  
+
+   public float payUp(){
+       in
    }
+
 }
 
 class Checkout{
+    private float total_cost;
     private float amount_given;
-    private float outstandingBalance;
     private Customer customer;
+    private Receipt receipt_printed;
 
-    public Checkout(float amount_given, float outstandingBalance, Customer customer){
-        this.amount_given = amount_given;
-        this.outstandingBalance = outstandingBalance;
-        this.customer = customer;
-    }
 
     public float computeDiscountLogic(){
         if (customer.getAge() >= 60 && customer.getMembership() == true){  // Senior and Member
-            return 0.30f;
+            return 0.30;
         } else if (customer.getAge() <= 60 && customer.getMembership() == true) {  // Member only
-            return 0.10f;
+            return 0.10;
         } else if (customer.getAge() >= 60 && customer.getMembership() == false) {  // Senior only
-            return 0.20f;
+            return 0.20;
         } else {
-            return 0.00f;
+            return 0.00;
         }
     }
 
-    public float calculateTotal(){
-        return ;
+    public float CalculateTotal(){
+        for(int i = 0; i < customer.getAllProducts().size(); i++){
+           total_cost += customer.getAllProducts.get(i).multiplyProductByQuantity;
+        }
+        return total_cost - (this.computeDiscountLogic() * total_cost);
     }
 
+ 
+
     public float giveChange(){
-        Scanner inputTenderedCash = new Scanner(System.in);
+        return amount_given - this.CalculateTotal();
+    }
 
-        System.out.println("Enter amount given: ");
-        float inputAmount = inputTenderedCash.nextFloat();
-
-        amount_given = inputAmount;
-
-        return amount_given - /* Placeholder for calculateTotal() */;
+    public Receipt printReceipt(){
+        receipt_printed = new Receipt(customer.getAllProducts(), CalculateTotal(),  amount_given, giveChange(), );
+        return receipt_printed;
     }
 }
 
@@ -261,6 +265,14 @@ class Receipt{
     private float received_amount;
     private float change;
     private String timestamp;
+
+    public Receipt(ArrayList<Product> purchases, float total_cost, float received_amount, float change, String timestamp){
+        this.purchases = purchases;
+        this.total_cost = total_cost;
+        this.received_amount = received_amount;
+        this.change = change;
+        this.timestamp = timestamp;
+    }
 
     public void issueReceipt(){
         System.out.println("Purchased Items: ");
@@ -276,20 +288,24 @@ class Receipt{
 }
 
 class Store_System{
-    private static ArrayList<Employee> employees = new ArrayList<Employee>();
+    private ArrayList<Employee> employees = new ArrayList<Employee>();
     private ArrayList<Product> products = new ArrayList<Product>();
-    private static int total_products;
+    private int total_products;
     private ArrayList<Shelf> shelves = new ArrayList<Shelf>();
     private Checkout checkout;
 
-    public static void addEmployee(Employee employee){
+    public void addEmployee(Employee employee){
         employees.add(employee);
-    }
+    } 
+
+    public
+
+    
 }
 
 public class convenienceStore {
     public static void main() {
-        Store_System convenience = new Store_System();
+        Store_System convenience = new Store_System(); 
         Scanner main = new Scanner(System.in);
         Employee Jose = new Employee("Jose Perez");
         Employee Chester = new Employee("Chester Aldrin Uy");
@@ -313,7 +329,7 @@ public class convenienceStore {
                 System.out.println("Please enter your name: ");
                 String employee = employed.nextLine();
 
-                if(employee.equals(convenience)){
+                if(employees.contains(employee)){
                     Scanner stockInventory = new Scanner(System.in);
 
                     System.out.println("Welcome to U&P, " + employee + "!\n");
