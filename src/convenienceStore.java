@@ -191,11 +191,44 @@ class Shelf{
 
 
 class Customer{
+   private String name;
+   private boolean membership;
+   private int age;
+   private ArrayList<Product> products_got;
+
+
+   public selectProduct(Shelf shelf, Product product){
+    
+    products_got.add(product);
+   } 
+
+   public ArrayList<Product>  getAllProducts(){
+    return products_got;
+   }
+
+   public int getAge(){
+    return age;
+   }
+
+   public boolean getMembership(){
+    return membership;
+   }  
 
 }
 
 class Checkout{
+    private float amount_given;
+    private Customer customer;
 
+    public CalculateTotal(){
+
+    }
+
+    public 
+
+    public computeDiscountLogic(){
+
+    }
 }
 
 class Receipt{
