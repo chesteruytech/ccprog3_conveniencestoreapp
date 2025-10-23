@@ -95,12 +95,6 @@ class Medications extends Product{
 class Employee{
     String name;
     private ArrayList<Product> stockInventory;
-    private Food FoodHolder;
-    private Beverages BevHolder;
-    private Toiletries ToilHolder;
-    private Cleaning_Products CleanHolder;
-    private Medications MedHolder;
-
 
     public Employee(String name){
         this.name = name;
@@ -124,28 +118,28 @@ class Employee{
     }
 
     public void categorizeToFood(int index){
-        FoodHolder = new Food(stockInventory.get(index).getName,  stockInventory.get(index).getBrand, stockInventory.get(index).getVariant, stockInventory.get(index).getQuantity, stockInventory.get(index).getPrice);
-        stockInventory.set(index, FoodHolder);
+        Food foodHolder = new Food(stockInventory.get(index).getName(),  stockInventory.get(index).getBrand(), stockInventory.get(index).getVariant(), stockInventory.get(index).getQuantity(), stockInventory.get(index).getPrice());
+        stockInventory.set(index, foodHolder);
     }
 
      public void categorizeToBev(int index){
-        BevHolder = new Beverages(stockInventory.get(index).getName,  stockInventory.get(index).getBrand, stockInventory.get(index).getVariant, stockInventory.get(index).getQuantity, stockInventory.get(index).getPrice);
-        stockInventory.set(index, BevHolder);
+        Beverages bevHolder = new Beverages(stockInventory.get(index).getName(),  stockInventory.get(index).getBrand(), stockInventory.get(index).getVariant(), stockInventory.get(index).getQuantity(), stockInventory.get(index).getPrice());
+        stockInventory.set(index, bevHolder);
     }
 
      public void categorizeToToil(int index){
-        ToilHolder = new Toiletries(stockInventory.get(index).getName,  stockInventory.get(index).getBrand, stockInventory.get(index).getVariant, stockInventory.get(index).getQuantity, stockInventory.get(index).getPrice);
-        stockInventory.set(index, ToilHolder);
+        Toiletries toilHolder = new Toiletries(stockInventory.get(index).getName(),  stockInventory.get(index).getBrand(), stockInventory.get(index).getVariant(), stockInventory.get(index).getQuantity(), stockInventory.get(index).getPrice());
+        stockInventory.set(index, toilHolder);
     }
 
      public void categorizeToClean(int index){
-        CleanHolder = new Cleaning_Products(stockInventory.get(index).getName,  stockInventory.get(index).getBrand, stockInventory.get(index).getVariant, stockInventory.get(index).getQuantity, stockInventory.get(index).getPrice);
-        stockInventory.set(index, CleanHolder);
+        Cleaning_Products cleanHolder = new Cleaning_Products(stockInventory.get(index).getName(),  stockInventory.get(index).getBrand(), stockInventory.get(index).getVariant(), stockInventory.get(index).getQuantity(), stockInventory.get(index).getPrice());
+        stockInventory.set(index, cleanHolder);
     }
 
      public void categorizeToMed(int index){
-        MedHolder = new Medications(stockInventory.get(index).getName,  stockInventory.get(index).getBrand, stockInventory.get(index).getVariant, stockInventory.get(index).getQuantity, stockInventory.get(index).getPrice);
-        stockInventory.set(index, MedHolder);
+        Medications medHolder = new Medications(stockInventory.get(index).getName(),  stockInventory.get(index).getBrand(), stockInventory.get(index).getVariant(), stockInventory.get(index).getQuantity(), stockInventory.get(index).getPrice());
+        stockInventory.set(index, medHolder);
     }
 
     public void reStock(Shelf shelf){
@@ -160,7 +154,6 @@ class Employee{
             shelf.getProducts().add(stockInventory.get(i));
         }      
             stockInventory.removeRange(0, noOfProductStock - 1);
-        
     }
 
     public String getName(){
@@ -169,7 +162,7 @@ class Employee{
 }
 
 class Shelf{
-    private int shelf_number;
+    private final int shelf_number;
     private ArrayList<Product> products;
 
     public Shelf(int shelf_number){
@@ -214,7 +207,7 @@ public class convenienceStore {
 
                 System.out.println("Please enter your name: ");
                 String employee = employed.nextLine();
-                if(employees.contains(new Employee(employee)))
+                if(employees.contains(employee))
                     System.out.println("Welcome to U&P, " + employee + "!");
                 else
                     System.out.println("Invalid employee name (really)");
