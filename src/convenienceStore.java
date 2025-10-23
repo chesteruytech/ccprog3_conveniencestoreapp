@@ -39,7 +39,6 @@ class Product{
         this.quantity = quantity;
         this.price = price;
     }
-
 }
 
 class Food extends Product{
@@ -145,11 +144,13 @@ class Shelf{
 public class convenienceStore {
     static void main() {
         Scanner main = new Scanner(System.in);
-        ArrayList<Employee> employees = new ArrayList<>();
+        ArrayList<String> employees = new ArrayList<>();
+        employees.add("Jose Perez");
+        employees.add("Chester Aldrin Uy");
 
         // Switch case for the Customer and Employee
         System.out.println("Welcome to U&P's Convenience Store Application!");
-        System.out.println("version a.0.0.2\n");
+        System.out.println("version a.0.0.13\n");
         System.out.println("Please select your option:");
         System.out.println("[C]ustomer | [E]mployee\n");
         System.out.println("You're a/n: ");
@@ -164,10 +165,9 @@ public class convenienceStore {
                 System.out.println("Please enter your name: ");
                 String employee = employed.nextLine();
                 if(employees.contains(new Employee(employee)))
-
+                    System.out.println("Welcome to U&P, " + employee + "!");
                 else
                     System.out.println("Invalid employee name (really)");
-
                 break;
             default:
                 System.out.println("You entered an invalid option. The application will now exit.");
