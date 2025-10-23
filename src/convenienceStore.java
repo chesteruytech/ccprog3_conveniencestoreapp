@@ -146,8 +146,8 @@ class Employee{
     }
 
     public static void reStock(Shelf shelf){
-        for (int i = 0; i < stockInventory.size(); i++){
-            shelf.getProducts().add(stockInventory.get(i));
+        for (Product newStock : stockInventory){
+            shelf.getProducts().add(newStock);
         }
 
         stockInventory.clear();
@@ -270,8 +270,8 @@ class Receipt{
 
     public void issueReceipt(){
         System.out.println("Purchased Items: ");
-        for (int i = 0; i < purchases.size(); i++){
-            System.out.println(purchases.get(i).getName() + " | Quantity: " + purchases.get(i).getQuantity() + " | Total Price:" + purchases.get(i).multiplyProductByQuantity());
+        for (Product boughtItems : purchases){
+            System.out.println(boughtItems.getName() + " | Quantity: " + boughtItems.getQuantity() + " | Total Price:" + boughtItems.multiplyProductByQuantity());
         }
 
         System.out.println("Total Cost: " + total_cost);
@@ -325,8 +325,8 @@ public class convenienceStore {
                 System.out.println("Please enter your name for verification: ");
                 String employee = employed.nextLine();
 
-                for(int i = 0; i < authorizedEmployeeList.size(); i++){
-                    if(authorizedEmployeeList.get(i).getName().equals(employee)){
+                for (Employee unp : authorizedEmployeeList) {
+                    if (unp.getName().equals(employee)) {
                         Scanner stockInventory = new Scanner(System.in);
 
                         System.out.println("Welcome to U&P, " + employee + "!\n");
@@ -335,7 +335,7 @@ public class convenienceStore {
                         System.out.println("[R]estock Product");
                         char productMod = stockInventory.next().charAt(0);
 
-                        switch(productMod){
+                        switch (productMod) {
                             case 'A': case 'a':
                                 Employee.addProduct();
                                 break;
@@ -343,10 +343,9 @@ public class convenienceStore {
                                 Employee.reStock();
                                 break;
                         }
-                    }else
+                    } else
                         System.out.println("Invalid employee name. Please try again.");
                 }
-
                 break;
             default:
                 System.out.println("You entered an invalid option. The application will now exit.");
