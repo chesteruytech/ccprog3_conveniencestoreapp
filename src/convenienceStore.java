@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 class Product{
     private String name;
-    String category;
+    private String category;
     private String brand;
     private String variant;
     private float price;
@@ -195,6 +195,8 @@ class Customer{
    private boolean membership;
    private int age;
    private ArrayList<Product> products_got;
+   private float money;
+
 
 
    public void selectProduct(Shelf shelf, Product product){
@@ -213,14 +215,20 @@ class Customer{
        return membership;
    }  
 
+   public float payUp(){
+       in
+   }
+
 }
 
 class Checkout{
+    private float total_cost;
     private float amount_given;
     private Customer customer;
+    private Receipt receipt_printed;
 
 
-    public double computeDiscountLogic(){
+    public float computeDiscountLogic(){
         if (customer.getAge() >= 60 && customer.getMembership() == true){  // Senior and Member
             return 0.30;
         } else if (customer.getAge() <= 60 && customer.getMembership() == true) {  // Member only
@@ -232,12 +240,22 @@ class Checkout{
         }
     }
 
-    public double CalculateTotal(){
-
+    public float CalculateTotal(){
+        for(int i = 0; i < customer.getAllProducts().size(); i++){
+           total_cost += customer.getAllProducts.get(i).multiplyProductByQuantity;
+        }
+        return total_cost - (this.computeDiscountLogic() * total_cost);
     }
 
-    public double giveChange(){
+ 
 
+    public float giveChange(){
+        return amount_given - this.CalculateTotal();
+    }
+
+    public Receipt printReceipt(){
+        receipt_printed = new Receipt(customer.getAllProducts(), CalculateTotal(),  amount_given, giveChange(), );
+        return receipt_printed;
     }
 }
 
@@ -247,6 +265,14 @@ class Receipt{
     private float received_amount;
     private float change;
     private String timestamp;
+
+    public Receipt(ArrayList<Product> purchases, float total_cost, float received_amount, float change, String timestamp){
+        this.purchases = purchases;
+        this.total_cost = total_cost;
+        this.received_amount = received_amount;
+        this.change = change;
+        this.timestamp = timestamp;
+    }
 
     public void issueReceipt(){
         System.out.println("Purchased Items: ");
@@ -264,13 +290,17 @@ class Receipt{
 class Store_System{
     private ArrayList<Employee> employees = new ArrayList<Employee>();
     private ArrayList<Product> products = new ArrayList<Product>();
-    private static int total_products;
+    private int total_products;
     private ArrayList<Shelf> shelves = new ArrayList<Shelf>();
     private Checkout checkout;
 
     public void addEmployee(Employee employee){
         employees.add(employee);
     } 
+
+    public
+
+    
 }
 
 public class convenienceStore {
