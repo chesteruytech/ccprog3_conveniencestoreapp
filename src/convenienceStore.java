@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class Product{
-    private String name, category, brand, variant;
-    private float price;
-    private int quantity;
+    String name, category, brand, variant;
+    float price;
+    int quantity;
 
     public Product(String name, String brand, String variant, int quantity, float price){
         this.name = name;
@@ -34,63 +34,74 @@ class Product{
 }
 
 class Food extends Product{
-public Food(String name, String brand, String variant, int quantity, float price){
-    super();
-    this.category = "Food";
-  }
-
+    public Food(String name, String brand, String variant, int quantity, float price){
+        super();
+        this.category = "Food";
+    }
 }
 
 class Beverages extends Product{
-public Beverages(String name, String brand, String variant, int quantity, float price){
-    super();
-    this.category = "Beverages";
-  }
+    public Beverages(String name, String brand, String variant, int quantity, float price){
+        super();
+        this.category = "Beverages";
+    }
 }
 
 class Toiletries extends Product{
-public Toiletries(String name, String brand, String variant, int quantity, float price){
-    super();
-    this.category = "Toiletries";
-  }
+    public Toiletries(String name, String brand, String variant, int quantity, float price){
+        super();
+        this.category = "Toiletries";
+    }
 }
 
 class Cleaning_Products extends Product{
-public Cleaning_Products(String name, String brand, String variant, int quantity, float price){
-    super();
-    this.category = "Cleaning_Products";
-  }
+    public Cleaning_Products(String name, String brand, String variant, int quantity, float price){
+        super();
+        this.category = "Cleaning_Products";
+    }
 }
 
 class Medications extends Product{
-public Medications(String name, String brand, String variant, int quantity, float price){
-    super();
-    this.category = "Medications";
-  }
+    public Medications(String name, String brand, String variant, int quantity, float price){
+        super();
+        this.category = "Medications";
+    }
 }
 
-
 class Employee{
-    private String name;
+    String name;
     private ArrayList<Product> stockInventory;
 
     public Employee(String name){
         this.name = name;
     }
 
-    public addProduct(Product stock){
-        stockInventory.add(stock)
+    public void addProduct(){
+        Scanner createProduct = new Scanner(System.in);
+
+        System.out.println("Product name: ");
+        String productName = createProduct.nextLine();
+        System.out.println("Brand: ");
+        String productBrand = createProduct.nextLine();
+        System.out.println("Variant: ");
+        String productVariant = createProduct.nextLine();
+        System.out.println("Quantity: ");
+        int productQuantity = createProduct.nextInt();
+        System.out.println("Price: ");
+        float productPrice = createProduct.nextFloat();
+
+        stockInventory.add(new Product(productName, productBrand, productVariant, productQuantity, productPrice));
     }
 
-    public reStock(Shelf shelf){
+    public void reStock(Shelf shelf){
         for (int i = 0; i < stockInventory.size(); i++){
-            shelf.getProducts().add(stockInventory.get(i))
+            shelf.getProducts().add(stockInventory.get(i));
         }
     }
 
-    public reStock(Shelf shelf, int noOfProductStock){
+    public void reStock(Shelf shelf, int noOfProductStock){
         for (int i = 0; i < noOfProductStock; i++){
-            shelf.getProducts().add(stockInventory.get(i))
+            shelf.getProducts().add(stockInventory.get(i));
         }
     }
 
@@ -106,7 +117,6 @@ class Shelf{
     public Shelf(int shelf_number){
         this.shelf_number = shelf_number;
     }
-    
 
     public void showProducts(){
         for(Product product : products){
@@ -122,8 +132,6 @@ class Shelf{
         return products;
     }
 }
-
-
 
 public class convenienceStore {
     static void main() {
