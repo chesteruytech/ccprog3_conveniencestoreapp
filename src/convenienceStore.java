@@ -287,7 +287,6 @@ class Checkout{
     private float total_cost;
     private float amount_given;
     private Customer customer;
-    private Receipt receipt_printed;
 
     public float computeDiscountLogic(){
         if (customer.getAge() >= 60 && customer.getMembership()){  // Senior and Member
@@ -310,12 +309,19 @@ class Checkout{
     }
 
     public float giveChange(){
-        return amount_given - this.CalculateTotal();
+        Scanner iLoveCash = new Scanner(System.in);
+
+        System.out.print("Enter amount given: Php");
+        amount_given = iLoveCash.nextFloat();
+
+        if(amount_given >= this.CalculateTotal())
+            return amount_given - this.CalculateTotal();
+
+        return 0;
     }
 
     public Receipt printReceipt(){
-        receipt_printed = new Receipt(customer.getAllProducts(), CalculateTotal(), amount_given, giveChange());
-        return receipt_printed;
+        return new Receipt(customer.getAllProducts(), CalculateTotal(), amount_given, giveChange());
     }
 }
 
@@ -399,7 +405,7 @@ public class convenienceStore {
         System.out.println("version a.0.0.13\n");
         System.out.println("Please select your option:");
         System.out.println("[C]ustomer | [E]mployee\n");
-        System.out.println("You're a/n: ");
+        System.out.print("You're a/n: ");
         char identifyAs = main.next().charAt(0);
 
         switch(identifyAs){
@@ -410,7 +416,7 @@ public class convenienceStore {
                 Store_System system = new Store_System();
                 ArrayList<Employee> authorizedEmployeeList = system.getEmployees();
 
-                System.out.println("Please enter your name for verification: ");
+                System.out.print("Please enter your name for verification: ");
                 String employee = employed.nextLine();
 
                 for (Employee unp : authorizedEmployeeList) {
@@ -420,7 +426,9 @@ public class convenienceStore {
                         System.out.println("Welcome to U&P, " + employee + "!\n");
                         System.out.println("What would you like to do?");
                         System.out.println("[A]dd Product to Shelf");
-                        System.out.println("[R]estock Product");
+                        System.out.println("[R]estock Product\n");
+
+                        System.out.println("Choose an option: ");
                         char productMod = stockInventory.next().charAt(0);
 
                         switch (productMod) {
