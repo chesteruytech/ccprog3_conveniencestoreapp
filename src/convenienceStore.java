@@ -220,13 +220,29 @@ class Checkout{
     private float amount_given;
     private Customer customer;
 
+
+    public computeDiscountLogic(){
+        if (customer.getAge >= 60 && customer.getMembership == true ){  // Senior and Member
+            return 0.30;
+        } 
+
+        else if(Customer.getAge <= 60 && Customer.getMembership == true) {  // Member only
+            return 0.10;
+        }
+
+        else if (customer.getAge >= 60 && customer.getMembership == false ) {  // Senior only
+            return 0.20;
+        } 
+
+        else{
+            return 0.00;
+        } 
+    }
     public CalculateTotal(){
 
     }
 
-    public 
-
-    public computeDiscountLogic(){
+    public giveChange(){
 
     }
 }
@@ -254,9 +270,11 @@ class Receipt{
 public class convenienceStore {
     static void main() {
         Scanner main = new Scanner(System.in);
-        ArrayList<String> employees = new ArrayList<>();
-        employees.add("Jose Perez");
-        employees.add("Chester Aldrin Uy");
+        ArrayList<Employee> employees = new ArrayList<Employee>();
+        Employee Jose = new Employee("Jose Perez");
+        Employee Chester = new Employee("Chester Aldrin Uy");
+        employees.add(Jose);
+        employees.add(Chester);
 
         // Switch case for the Customer and Employee
         System.out.println("Welcome to U&P's Convenience Store Application!");
