@@ -2,6 +2,13 @@ import java.lang.System;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/*
+ * Represents a listed item of the product.
+ *
+ * @author      Jose Perez, Chester Aldrin Uy
+ * @version     %I%
+ */
+
 class Product{
     private String name;
     protected String category;
@@ -60,12 +67,26 @@ class Product{
     }
 }
 
+/*
+ * Filters the product into categories by Food.
+ *
+ * @author      Jose Perez, Chester Aldrin Uy
+ * @version     %I%
+ */
+
 class Food extends Product{
     public Food(String name, String brand, String variant, int quantity, float price){
         super(name, brand, variant, quantity, price);
         this.category = "Food";
     }
 }
+
+/*
+ * Filters the product into categories by Beverages.
+ *
+ * @author      Jose Perez, Chester Aldrin Uy
+ * @version     %I%
+ */
 
 class Beverages extends Product{
     public Beverages(String name, String brand, String variant, int quantity, float price){
@@ -74,12 +95,26 @@ class Beverages extends Product{
     }
 }
 
+/*
+ * Filters the product into categories by Toiletries.
+ *
+ * @author      Jose Perez, Chester Aldrin Uy
+ * @version     %I%
+ */
+
 class Toiletries extends Product{
     public Toiletries(String name, String brand, String variant, int quantity, float price){
         super(name, brand, variant, quantity, price);
         this.category = "Toiletries";
     }
 }
+
+/*
+ * Filters the product into categories by Cleaning Products.
+ *
+ * @author      Jose Perez, Chester Aldrin Uy
+ * @version     %I%
+ */
 
 class Cleaning_Products extends Product{
     public Cleaning_Products(String name, String brand, String variant, int quantity, float price){
@@ -88,12 +123,26 @@ class Cleaning_Products extends Product{
     }
 }
 
+/*
+ * Filters the product into categories by Medications.
+ *
+ * @author      Jose Perez, Chester Aldrin Uy
+ * @version     %I%
+ */
+
 class Medications extends Product{
     public Medications(String name, String brand, String variant, int quantity, float price){
         super(name, brand, variant, quantity, price);
         this.category = "Medications";
     }
 }
+
+/*
+ * Represents the actions that an employee of the convenienceStore can do.
+ *
+ * @author      Jose Perez, Chester Aldrin Uy
+ * @version     %I%
+ */
 
 class Employee{
     String name;
@@ -146,17 +195,13 @@ class Employee{
     }
 
     public static void reStock(Shelf shelf){
-        for (Product newStock : stockInventory){
-            shelf.getProducts().add(newStock);
-        }
+        for (Product newStock : stockInventory) shelf.getProducts().add(newStock);
 
         stockInventory.clear();
     }
 
     public static void reStock(Shelf shelf, int noOfProductStock){
-        for (int i = 0; i < noOfProductStock; i++){
-            shelf.getProducts().add(stockInventory.get(i));
-        }
+        for (int i = 0; i < noOfProductStock; i++) shelf.getProducts().add(stockInventory.get(i));
 
         stockInventory.removeRange(0, noOfProductStock - 1);
     }
@@ -165,6 +210,13 @@ class Employee{
         return name;
     }
 }
+
+/*
+ * Represents the identification of the products based on the Shelf.
+ *
+ * @author      Jose Perez, Chester Aldrin Uy
+ * @version     %I%
+ */
 
 class Shelf{
     private final int shelf_number;
@@ -188,6 +240,13 @@ class Shelf{
         return products;
     }
 }
+
+/*
+ * Represents the customer information.
+ *
+ * @author      Jose Perez, Chester Aldrin Uy
+ * @version     %I%
+ */
 
 class Customer{
     private String name;
@@ -216,6 +275,13 @@ class Customer{
         return money;
     }
 }
+
+/*
+ * Calculates the checkout based on the given requirements.
+ *
+ * @author      Jose Perez, Chester Aldrin Uy
+ * @version     %I%
+ */
 
 class Checkout{
     private float total_cost;
@@ -253,6 +319,13 @@ class Checkout{
     }
 }
 
+/*
+ * Displays the receipt upon purchasing our products.
+ *
+ * @author      Jose Perez, Chester Aldrin Uy
+ * @version     %I%
+ */
+
 class Receipt{
     private ArrayList<Product> purchases;
     private float total_cost;
@@ -281,6 +354,13 @@ class Receipt{
     }
 }
 
+/*
+ * System-logged usage of the convenienceStore application.
+ *
+ * @author      Jose Perez, Chester Aldrin Uy
+ * @version     %I%
+ */
+
 class Store_System{
     private ArrayList<Employee> employees = new ArrayList<>();
     private ArrayList<Product> products = new ArrayList<>();
@@ -296,6 +376,14 @@ class Store_System{
         return employees;
     }
 }
+
+/*
+ * Driver function of the convenienceStore Application.
+ * Interacts between User and itself.
+ *
+ * @author      Jose Perez, Chester Aldrin Uy
+ * @version     %I%
+ */
 
 public class convenienceStore {
     public static void main() {
