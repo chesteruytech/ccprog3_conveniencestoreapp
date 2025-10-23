@@ -261,15 +261,26 @@ class Receipt{
    }
 }
 
+class Store_System{
+    private ArrayList<Employee> employees = new ArrayList<Employee>();
+    private ArrayList<Product> products = new ArrayList<Product>();
+    private static int total_products;
+    private ArrayList<Shelf> shelves = new ArrayList<Shelf>();
+    private Checkout checkout;
+
+    public void addEmployee(Employee employee){
+        employees.add(employee);
+    } 
+}
 
 public class convenienceStore {
-    static void main() {
+    public static void main() {
+        Store_System convenience = new Store_System(); 
         Scanner main = new Scanner(System.in);
-        ArrayList<Employee> employees = new ArrayList<Employee>();
         Employee Jose = new Employee("Jose Perez");
         Employee Chester = new Employee("Chester Aldrin Uy");
-        employees.add(Jose);
-        employees.add(Chester);
+        convenience.addEmployee(Jose);
+        convenience.addEmployee(Chester);
 
         // Switch case for the Customer and Employee
         System.out.println("Welcome to U&P's Convenience Store Application!");
