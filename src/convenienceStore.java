@@ -197,21 +197,20 @@ class Customer{
    private ArrayList<Product> products_got;
 
 
-   public selectProduct(Shelf shelf, Product product){
-    
-    products_got.add(product);
+   public void selectProduct(Shelf shelf, Product product){
+       products_got.add(product);
    } 
 
-   public ArrayList<Product>  getAllProducts(){
-    return products_got;
+   public ArrayList<Product> getAllProducts(){
+       return products_got;
    }
 
    public int getAge(){
-    return age;
+       return age;
    }
 
    public boolean getMembership(){
-    return membership;
+       return membership;
    }  
 
 }
@@ -221,28 +220,23 @@ class Checkout{
     private Customer customer;
 
 
-    public computeDiscountLogic(){
-        if (customer.getAge >= 60 && customer.getMembership == true ){  // Senior and Member
+    public double computeDiscountLogic(){
+        if (customer.getAge() >= 60 && customer.getMembership() == true){  // Senior and Member
             return 0.30;
-        } 
-
-        else if(Customer.getAge <= 60 && Customer.getMembership == true) {  // Member only
+        } else if (customer.getAge() <= 60 && customer.getMembership() == true) {  // Member only
             return 0.10;
-        }
-
-        else if (customer.getAge >= 60 && customer.getMembership == false ) {  // Senior only
+        } else if (customer.getAge() >= 60 && customer.getMembership() == false) {  // Senior only
             return 0.20;
-        } 
-
-        else{
+        } else {
             return 0.00;
-        } 
+        }
     }
-    public CalculateTotal(){
+
+    public double CalculateTotal(){
 
     }
 
-    public giveChange(){
+    public double giveChange(){
 
     }
 }
@@ -255,10 +249,11 @@ class Receipt{
     private String timestamp;
 
     public void issueReceipt(){
-        System.out.println("Purchased Items: ")
+        System.out.println("Purchased Items: ");
         for (int i = 0; i < purchases.size(); i++){
-            System.out.println(purchases.get(i).getName()  + "  Quantity: "  purchases.get(i).getQuantity() +  "   Total Price:"  purchases.get(i).multiplyProductByQuantity() );
-    }
+            System.out.println(purchases.get(i).getName() + " | Quantity: " + purchases.get(i).getQuantity() + " | Total Price:" + purchases.get(i).multiplyProductByQuantity());
+        }
+
         System.out.println("Total Cost: " + total_cost);
         System.out.println("Received Amount: " + received_amount);
         System.out.println("Change: " + change);
