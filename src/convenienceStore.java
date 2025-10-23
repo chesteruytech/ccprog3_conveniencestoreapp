@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class Product{
-    String name, category, brand, variant;
-    float price;
-    int quantity;
+    private String name, category, brand, variant;
+    private float price;
+    private int quantity;
 
     public Product(String name, String brand, String variant, int quantity, float price){
         this.name = name;
@@ -31,6 +31,15 @@ class Product{
     public float getPrice(){
         return price;
     }
+
+    public void setValues(String name, String brand, String variant, int quantity, float price){
+        this.name = name;
+        this.brand = brand;
+        this.variant = variant;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
 }
 
 class Food extends Product{
@@ -155,7 +164,7 @@ public class convenienceStore {
                 System.out.println("Please enter your name: ");
                 String employee = employed.nextLine();
                 if(employees.contains(new Employee(employee)))
-                    System.out.println("Invalid employee change");
+
                 else
                     System.out.println("Invalid employee name (really)");
 
