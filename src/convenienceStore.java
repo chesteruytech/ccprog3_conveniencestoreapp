@@ -8,7 +8,6 @@ import java.util.Scanner;
  * @author      Jose Perez, Chester Aldrin Uy
  * @version     %I%
  */
-
 class Product{
     private String name;
     protected String category;
@@ -77,7 +76,6 @@ class Product{
  * @author      Jose Perez, Chester Aldrin Uy
  * @version     %I%
  */
-
 class Food extends Product{
     public Food(String name, String brand, String variant, int quantity, float price){
         super(name, brand, variant, quantity, price);
@@ -91,7 +89,6 @@ class Food extends Product{
  * @author      Jose Perez, Chester Aldrin Uy
  * @version     %I%
  */
-
 class Beverages extends Product{
     public Beverages(String name, String brand, String variant, int quantity, float price){
         super(name, brand, variant, quantity, price);
@@ -105,7 +102,6 @@ class Beverages extends Product{
  * @author      Jose Perez, Chester Aldrin Uy
  * @version     %I%
  */
-
 class Toiletries extends Product{
     public Toiletries(String name, String brand, String variant, int quantity, float price){
         super(name, brand, variant, quantity, price);
@@ -119,7 +115,6 @@ class Toiletries extends Product{
  * @author      Jose Perez, Chester Aldrin Uy
  * @version     %I%
  */
-
 class Cleaning_Products extends Product{
     public Cleaning_Products(String name, String brand, String variant, int quantity, float price){
         super(name, brand, variant, quantity, price);
@@ -133,7 +128,6 @@ class Cleaning_Products extends Product{
  * @author      Jose Perez, Chester Aldrin Uy
  * @version     %I%
  */
-
 class Medications extends Product{
     public Medications(String name, String brand, String variant, int quantity, float price){
         super(name, brand, variant, quantity, price);
@@ -147,7 +141,6 @@ class Medications extends Product{
  * @author      Jose Perez, Chester Aldrin Uy
  * @version     %I%
  */
-
 class Employee{
     String name;
     private static ArrayList<Product> stockInventory;
@@ -226,7 +219,6 @@ class Employee{
  * @author      Jose Perez, Chester Aldrin Uy
  * @version     %I%
  */
-
 class Shelf{
     private final int shelf_number;
     private ArrayList<Product> products;
@@ -251,12 +243,11 @@ class Shelf{
 }
 
 /*
- * Represents the customer information.
+ * Represents the customer information. This is a commented out code.
  *
  * @author      Jose Perez, Chester Aldrin Uy
  * @version     %I%
  */
-
 //class Customer{
 //    private String name;
 //    private boolean membership;
@@ -293,12 +284,11 @@ class Shelf{
 //}
 
 /*
- * Calculates the checkout based on the given requirements.
+ * Calculates the checkout based on the given requirements. This is a commented out code.
  *
  * @author      Jose Perez, Chester Aldrin Uy
  * @version     %I%
  */
-
 //class Checkout{
 //    private float total_cost;
 //    private float amount_given;
@@ -346,12 +336,11 @@ class Shelf{
 //}
 
 /*
- * Displays the receipt upon purchasing our products.
+ * Displays the receipt upon purchasing our products. This is a commented out code.
  *
  * @author      Jose Perez, Chester Aldrin Uy
  * @version     %I%
  */
-
 //class Receipt{
 //    private final ArrayList<Product> purchases;
 //    private final float total_cost;
@@ -376,17 +365,16 @@ class Shelf{
 //        System.out.println("Total Cost: " + total_cost);
 //        System.out.println("Received Amount: " + received_amount);
 //        System.out.println("Change: " + change);
-////        System.out.println("Time Stamped: " + timestamp);
+//        System.out.println("Time Stamped: " + timestamp);
 //    }
 //}
 
 /*
- * System-logged usage of the convenienceStore application.
+ * System-logged usage of the convenienceStore application. Some of the associated codes are commented out.
  *
  * @author      Jose Perez, Chester Aldrin Uy
  * @version     %I%
  */
-
 class Store_System{
     private ArrayList<Employee> employees;
     private ArrayList<Product> products;
@@ -432,13 +420,12 @@ class Store_System{
 }
 
 /*
- * Driver function of the convenienceStore Application.
+ * Driver function of the convenienceStore Application. Some of the associated codes are commented out.
  * Interacts between User and itself.
  *
  * @author      Jose Perez, Chester Aldrin Uy
  * @version     %I%
  */
-
 public class convenienceStore {
     public static void main() {
         Store_System convenience = new Store_System(); 
