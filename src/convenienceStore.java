@@ -422,22 +422,22 @@ public class convenienceStore {
         Beverages C2Yellow = new Beverages("C2Yellow", "C2", "Yellow", 5, 26.50f);
         Beverages CokeRegular = new Beverages("CokeRegular", "Coke", "Regular", 5, 28.50f);
         Beverages CokeZero = new Beverages("CokeZero", "Coke", "Zero", 5, 28.50f);
-        Beverages RoyalClassic = new ("RoyalClassic", "Royal", "Classic", 5, 27.25f);
+        Beverages RoyalClassic = new Beverages ("RoyalClassic", "Royal", "Classic", 5, 27.25f);
         Toiletries ColgateTripleAction  = new Toiletries("ColgateTripleAction", "Colgate", "TripleAction", 5, 76.50f);
         Toiletries ColgateAntiCavity  = new Toiletries("ColgateAntiCavity", "Colgate", "AntiCavity", 5, 76.50f);
         Toiletries SafeguardPureWhite = new Toiletries("SafeguardPureWhite", "Safeguard", "PureWhite", 5, 50.25f);
-        Toiletries SafeguardLemon = new Toiletries("SafeguardLemon", "Safeguard". "Lemon", 5, 50.25f);
+        Toiletries SafeguardLemon = new Toiletries("SafeguardLemon", "Safeguard", "Lemon", 5, 50.25f);
         Toiletries OldSpiceOriginal = new Toiletries("OldSpiceOriginal", "OldSpice", "Original", 5, 243.00f);
         Cleaning_Products GreenCrossAlcoholClassic  = new Cleaning_Products("GreenCrossAlcoholClassic", "GreenCross", "AlcoholClassic", 5, 65.75f);
         Cleaning_Products TideDetergent  = new Cleaning_Products("TideDetergent", "Tide", "Detergent", 5, 262.50f);
         Cleaning_Products TideBar  = new Cleaning_Products("TideBar", "Tide", "Bar", 5, 14.70f);
         Cleaning_Products ScotchBriteYellow  = new Cleaning_Products("ScotchBriteYellow", "ScotchBrite", "Yellow", 5, 71.50f);
         Cleaning_Products ScotchBriteBlue  = new Cleaning_Products("ScotchBriteBlue", "ScotchBrite", "Blue", 5, 71.50f);
-        Medications m = new Medications();
-        Medications e = new Medications();
-        Medications d = new Medications();
-        Medications i = new Medications();
-        Medications c = new Medications();
+//        Medications m = new Medications();
+//        Medications e = new Medications();
+//        Medications d = new Medications();
+//        Medications i = new Medications();
+//        Medications c = new Medications();
 
         // Switch case for the Customer and Employee
         System.out.println("Welcome to U&P's Convenience Store Application!");
