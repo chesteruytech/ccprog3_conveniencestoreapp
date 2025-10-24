@@ -369,6 +369,12 @@ class Employee{
         return name;
     }
 
+    /*
+     * Requests the system to update the product with new parameters.
+     * This action can only be interacted by the Employee.
+     *
+     * @param product information from its parameters of the Product
+     */
     public void changeProduct(Product product){
         Scanner updateProduct = new Scanner(System.in);
 
