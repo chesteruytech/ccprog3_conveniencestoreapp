@@ -263,18 +263,24 @@ class Employee{
     public static void addProduct(){
         Scanner createProduct = new Scanner(System.in);
 
-        System.out.println("Product name: ");
+        System.out.print("Product name: ");
         String productName = createProduct.nextLine();
-        System.out.println("Brand: ");
+        System.out.print("Brand: ");
         String productBrand = createProduct.nextLine();
-        System.out.println("Variant: ");
+        System.out.print("Variant: ");
         String productVariant = createProduct.nextLine();
-        System.out.println("Quantity: ");
+        System.out.print("Quantity: ");
         int productQuantity = createProduct.nextInt();
-        System.out.println("Price: ");
+        System.out.print("Price: ");
         float productPrice = createProduct.nextFloat();
 
+        ArrayList<Product> stockInventory = new ArrayList<>();
         stockInventory.add(new Product(productName, productBrand, productVariant, productQuantity, productPrice));
+
+        if(stockInventory.contains(new Product(productName, productBrand, productVariant, productQuantity, productPrice)))
+            System.out.println("Product already exists");
+        else
+            System.out.println("Product added successfully");
     }
 
     /*
@@ -378,15 +384,15 @@ class Employee{
     public void changeProduct(Product product){
         Scanner updateProduct = new Scanner(System.in);
 
-        System.out.println("Product name: ");
+        System.out.print("Product name: ");
         String productName = updateProduct.nextLine();
-        System.out.println("Brand: ");
+        System.out.print("Brand: ");
         String productBrand = updateProduct.nextLine();
-        System.out.println("Variant: ");
+        System.out.print("Variant: ");
         String productVariant = updateProduct.nextLine();
-        System.out.println("Quantity: ");
+        System.out.print("Quantity: ");
         int productQuantity = updateProduct.nextInt();
-        System.out.println("Price: ");
+        System.out.print("Price: ");
         float productPrice = updateProduct.nextFloat();
         
         product.setValues(productName, productBrand, productVariant, productQuantity, productPrice);
