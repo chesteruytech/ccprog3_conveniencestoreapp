@@ -33,10 +33,6 @@ class Product{
         System.out.println(price);
     }
 
-    public float multiplyProductByQuantity(){
-        return price * quantity;
-    }
-
     public float getPrice(){
         return price;
     }
@@ -45,9 +41,9 @@ class Product{
         return name;
     }
 
-    public String getCategory(){
-        return category;
-    }
+//    public String getCategory(){
+//        return category;
+//    }
 
     public String getBrand(){
         return brand;
@@ -427,7 +423,7 @@ class Store_System{
  * @version     %I%
  */
 public class convenienceStore {
-    public static void main() {
+    static void main() {
         Store_System convenience = new Store_System(); 
         Scanner main = new Scanner(System.in);
         Employee Jose = new Employee("Jose Perez");
@@ -555,7 +551,6 @@ public class convenienceStore {
                 System.out.println("This function is currently under maintenance. The program will now exit.");
                 break;
             case 'E': case 'e':
-                
                 ArrayList<Employee> authorizedEmployeeList = convenience.getEmployees();
 
                 Scanner employed = new Scanner(System.in);
@@ -564,7 +559,6 @@ public class convenienceStore {
 
                 for (Employee unp : authorizedEmployeeList) {
                     if (unp.getName().equals(employee)) {
-
                         System.out.println("Welcome to U&P, " + employee + "!\n");
                         System.out.println("What would you like to do?");
                         System.out.println("[A]dd Product to Shelf");
@@ -579,7 +573,21 @@ public class convenienceStore {
                                 Employee.addProduct();
                                 break;
                             case 'R': case 'r':
-                                Employee.reStock();
+                                Scanner chooseShelf = new Scanner(System.in);
+                                Scanner restockItems = new Scanner(System.in);
+
+                                System.out.println("Shelf: [1][2][3][4][5][6][7][8][9][10]");
+                                System.out.print("Choose Shelf: ");
+                                int shelf = chooseShelf.nextInt();
+
+                                System.out.print("Choose Shelf: How many are you going to restock? ");
+                                int restock = restockItems.nextInt();
+
+                                if(restock == 1)
+                                    Employee.reStock(new Shelf(shelf));
+                                else if (restock > 1)
+                                    Employee.reStock(new Shelf(shelf), restock);
+
                                 break;
                         }
                     } else
