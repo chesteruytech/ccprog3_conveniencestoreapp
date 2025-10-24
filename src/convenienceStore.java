@@ -257,7 +257,7 @@ class Customer{
     private boolean membership;
     private int age;
     private ArrayList<Product> products_got;
-    private float money = 0.00f;
+    private float money;
 
     public Customer(String name, boolean membership, int age, float money){
         this.name = name;
@@ -286,8 +286,8 @@ class Customer{
         return membership;
     }
 
-    public float payUp(){
-        return money;
+    public void payUp(float money){
+        this.money = money;
     }
 }
 
@@ -385,9 +385,9 @@ class Receipt{
 class Store_System{
     private ArrayList<Employee> employees = new ArrayList<>();
     private ArrayList<Product> products = new ArrayList<>();
-    private int total_products;
-    private ArrayList<Shelf> shelves = new ArrayList<>();
-    private Checkout checkout;
+//    private int total_products;
+//    private ArrayList<Shelf> shelves = new ArrayList<>();
+//    private Checkout checkout;
 
     public void addEmployee(Employee employee){
         employees.add(employee);
@@ -399,14 +399,6 @@ class Store_System{
 
     public ArrayList<Product> getProducts(){
         return products;
-    }
-
-    public String getProductName(String productName){
-        for (Product product : products){
-            productName = product.getName();
-        }
-
-        return productName;
     }
 }
 
@@ -437,7 +429,7 @@ public class convenienceStore {
 
         switch(identifyAs){
             case 'C': case 'c':
-                Store_System inside = new Store_System();
+                Shelf inside = new Shelf();
                 ArrayList<Product> productQuery = inside.getProducts();
 
                 System.out.println("Good day, customer! What would you like to buy?\n");
@@ -452,18 +444,18 @@ public class convenienceStore {
                 Scanner view = new Scanner(System.in);
                 System.out.println("Copy the Product Name below to view the product: ");
                 String inputProductName = view.nextLine();
-                String existingProduct = inside.getProductName(inputProductName);
 
-                if (existingProduct.equals(inputProductName)) {
-                    Product currentProduct = new Product();
-                    currentProduct.showProductInformation();
+                for(Product showProducts : productQuery) {
+                    if (showProducts.getName().equals(inputProductName)) {
+                        Product currentProduct = new Product(showProducts.getName(), showProducts.getBrand(), showProducts.getVariant(), showProducts.getQuantity(), showProducts.getPrice());
+                        currentProduct.showProductInformation();
 
-                    Scanner productAction = new Scanner(System.in);
-                    System.out.println("Actions: ");
-                    System.out.println("[B]uy Now | [A]dd to Cart | [<] Back");
-                    char action = productAction.next().charAt(0);
+                        Scanner productAction = new Scanner(System.in);
+                        System.out.println("Actions: ");
+                        System.out.println("[B]uy Now | [A]dd to Cart | [<] Back");
+                        char action = productAction.next().charAt(0);
+                    }
                 }
-
                 break;
             case 'E': case 'e':
                 Store_System system = new Store_System();
