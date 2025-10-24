@@ -422,12 +422,21 @@ public class convenienceStore {
         Beverages C2Yellow = new Beverages("C2Yellow", "C2", "Yellow", 5, 26.50f);
         Beverages CokeRegular = new Beverages("CokeRegular", "Coke", "Regular", 5, 28.50f);
         Beverages CokeZero = new Beverages("CokeZero", "Coke", "Zero", 5, 28.50f);
+<<<<<<< HEAD
+        Beverages RoyalClassic = new ("RoyalClassic", "Royal", "Classic", 5, 27.25f);
+        Toiletries ColgateTripleAction  = new Toiletries("ColgateTripleAction", "Colgate", "TripleAction", 5, 76.50f);
+        Toiletries ColgateAntiCavity  = new Toiletries("ColgateAntiCavity", "Colgate", "AntiCavity", 5, 76.50f);
+        Toiletries SafeguardPureWhite = new Toiletries("SafeguardPureWhite", "Safeguard", "PureWhite", 5, 50.25f);
+        Toiletries SafeguardLemon = new Toiletries("SafeguardLemon", "Safeguard". "Lemon", 5, 50.25f);
+        Toiletries OldSpiceOriginal = new Toiletries("OldSpiceOriginal", "OldSpice", "Original", 5, 243.00f);
+=======
         Beverages RoyalClassic = new Beverages ("RoyalClassic", "Royal", "Classic", 5, 27.25f);
 //        Toiletries Colgate  = new Toiletries("Colgate");
 //        Toiletries Colgate  = new Toiletries();
 //        Toiletries SafeguardPureWhite = new Toiletries();
 //        Toiletries SafeguardLemon = new Toiletries();
 //        Toiletries
+>>>>>>> 13c6c145ac1e25a9f6f4d2c9e8a8990f8962cdbe
 
         // Switch case for the Customer and Employee
         System.out.println("Welcome to U&P's Convenience Store Application!");
