@@ -278,9 +278,9 @@ class Employee{
         stockInventory.add(new Product(productName, productBrand, productVariant, productQuantity, productPrice));
 
         if(stockInventory.contains(new Product(productName, productBrand, productVariant, productQuantity, productPrice)))
-            System.out.println("Product already exists");
+            System.out.println("Product already exists\n");
         else
-            System.out.println("Product added successfully");
+            System.out.println("Product added successfully\n");
     }
 
     /*
@@ -347,6 +347,7 @@ class Employee{
         for (Product newStock : stockInventory){
             shelf.getProducts().add(newStock);
         }
+
         stockInventory.clear();
     }
 
@@ -694,7 +695,7 @@ public class convenienceStore {
      * Acts as an output of the entire Java code.
      * This is also known as the driver function.
      */
-    public static void main() {
+    public static void main(String[] args) {
         Store_System convenience = new Store_System(); 
         Scanner main = new Scanner(System.in);
         Employee Jose = new Employee("Jose Perez");
@@ -760,7 +761,7 @@ public class convenienceStore {
 
         // Switch case for the Customer and Employee
         System.out.println("Welcome to U&P's Convenience Store Application!");
-        System.out.println("version a.0.0.13\n");
+        System.out.println("version b.0.1.13\n");
         System.out.println("Please select your option:");
         System.out.println("[C]ustomer | [E]mployee\n");
         System.out.print("You're a/n: ");
@@ -842,6 +843,7 @@ public class convenienceStore {
                         switch (productMod) {
                             case 'A': case 'a':
                                 Employee.addProduct();
+                                convenienceStore.main(args);
                                 break;
                             case 'R': case 'r':
                                 Scanner chooseShelf = new Scanner(System.in);
@@ -851,13 +853,16 @@ public class convenienceStore {
                                 System.out.print("Choose Shelf: ");
                                 int shelf = chooseShelf.nextInt();
 
-                                System.out.print("Choose Shelf: How many are you going to restock? ");
+                                System.out.print("How many are you going to restock? ");
                                 int restock = restockItems.nextInt();
 
-                                if(restock == 1)
+                                if(restock == 1){
                                     Employee.reStock(new Shelf(shelf));
-                                else if (restock > 1)
+                                    convenienceStore.main(args);
+                                } else if (restock > 1){
                                     Employee.reStock(new Shelf(shelf), restock);
+                                    convenienceStore.main(args);
+                                }
 
                                 break;
                         }
