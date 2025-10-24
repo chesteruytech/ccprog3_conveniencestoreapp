@@ -379,6 +379,11 @@ class Store_System{
 //    private Checkout checkout;
 //    private ArrayList<Customer> customers;
 
+    public Store_System(){
+        this.employees = new ArrayList<>();
+        this.products = new ArrayList<>();
+    }
+
     public void addEmployee(Employee employee){
         employees.add(employee);
     }
