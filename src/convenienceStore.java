@@ -412,6 +412,21 @@ public class convenienceStore {
         Employee Chester = new Employee("Chester Aldrin Uy");
         convenience.addEmployee(Jose);
         convenience.addEmployee(Chester);
+        Food Cloud9Classic =  new Food("CLoud9Classic", "Cloud9", "Classic", 5, 10.55f);
+        Food VcutBarbeque = new Food("VcutBarbeque", "Vcut", "Barbeque", 5, 18.70f);
+        Food VcutCheese = new Food("VcutCheese", "Vcut", "Cheese", 5, 18.70f);
+        Food PiattosSourCream = new Food("PiattosSourCream", "Piattos", "SourCream", 5, 16.31f);
+        Food PiattosCheese = new Food("PiattosCheese", "Piattos", "Cheese", 5, 16.31f);
+        Beverages C2Red = new Beverages("C2Red", "C2", "Red", 5, 26.50f);
+        Beverages C2Yellow = new Beverages("C2Yellow", "C2", "Yellow", 5, 26.50f);
+        Beverages CokeRegular = new Beverages("CokeRegular", "Coke", "Regular", 5, 28.50f);
+        Beverages CokeZero = new Beverages("CokeZero", "Coke", "Zero", 5, 28.50f);
+        Beverages RoyalClassic = new ("RoyalClassic", "Royal", "Classic", 5, 27.25f);
+        Toiletries Colgate  = new Toiletries("Colgate");
+        Toiletries Colgate  = new Toiletries();
+        Toiletries SafeguardPureWhite = new Toiletries();
+        Toiletries SafeguardLemon = new Toiletries();
+        Toiletries
 
         // Switch case for the Customer and Employee
         System.out.println("Welcome to U&P's Convenience Store Application!");
