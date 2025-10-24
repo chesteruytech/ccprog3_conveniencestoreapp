@@ -570,7 +570,7 @@ public class convenienceStore {
                         System.out.println("[R]estock Product\n");
 
                         Scanner stockInventory = new Scanner(System.in);
-                        System.out.println("Choose an option: ");
+                        System.out.print("Choose an option: ");
                         char productMod = stockInventory.next().charAt(0);
 
                         switch (productMod) {
@@ -596,7 +596,7 @@ public class convenienceStore {
                                 break;
                         }
                     } else
-                        System.out.println("Invalid employee name. Please try again.");
+                        System.out.println("Please wait as we verify your name...");
                 }
                 break;
             default:
