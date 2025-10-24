@@ -199,15 +199,20 @@ class Employee{
     }
 
     public static void reStock(Shelf shelf){
-        for (Product newStock : stockInventory) shelf.getProducts().add(newStock);
-
+        for (Product newStock : stockInventory){
+            shelf.getProducts().add(newStock);
+        }
         stockInventory.clear();
     }
 
     public static void reStock(Shelf shelf, int noOfProductStock){
-        for (int i = 0; i < noOfProductStock; i++) shelf.getProducts().add(stockInventory.get(i));
+        for (int i = 0; i < noOfProductStock; i++) {
+            shelf.getProducts().add(stockInventory.get(i));
+        }
+        for (int i = 0; i < noOfProductStock; i++) {
+            stockInventory.remove(stockInventory.get(i));
+        }
 
-        stockInventory.removeRange(0, noOfProductStock - 1);
     }
 
     public String getName(){
@@ -256,12 +261,14 @@ class Customer{
     private String name;
     private boolean membership;
     private int age;
+    private float money;
     private ArrayList<Product> products_got;
 
     public Customer(String name, boolean membership, int age, float money){
         this.name = name;
         this.membership = membership;
         this.age = age;
+        this.money = money;
     }
 
     public void selectProduct(Shelf shelf, Product product){
@@ -296,6 +303,10 @@ class Checkout{
     private float total_cost;
     private float amount_given;
     private Customer customer;
+
+    public void setCustomer(Customer customer){
+        this.customer = customer;
+    }
 
     public float computeDiscountLogic(){
         if (customer.getAge() >= 60 && customer.getMembership()){  // Senior and Member
@@ -377,18 +388,34 @@ class Receipt{
  */
 
 class Store_System{
-    private ArrayList<Employee> employees = new ArrayList<>();
-    private ArrayList<Product> products = new ArrayList<>();
+    private ArrayList<Employee> employees;
+    private ArrayList<Product> products;
 //    private int total_products;
 //    private ArrayList<Shelf> shelves = new ArrayList<>();
-//    private Checkout checkout;
+    private Checkout checkout;
+    private ArrayList<Customer> customers;
 
     public void addEmployee(Employee employee){
         employees.add(employee);
     }
 
+    public void addCustomer(Customer customer){
+        customers.add(customer);
+    }
+
+
+    public showCustomers(){
+        for (Customer customer_pick : customers){
+            System.out.println(customer_pick.getName());
+        }
+    } 
+
     public ArrayList<Employee> getEmployees(){
         return employees;
+    }
+
+    public ArrayList<Customer> getCustomers(){
+        return customers;
     }
 
     public ArrayList<Product> getProducts(){
@@ -397,6 +424,10 @@ class Store_System{
 
     public void stockinitialProducts(Product product){
         products.add(product);
+    }
+
+    public void proceedtoCheckout(Customer customer){
+        checkout.setCustomer(customer);
     }
 
     
@@ -416,8 +447,12 @@ public class convenienceStore {
         Scanner main = new Scanner(System.in);
         Employee Jose = new Employee("Jose Perez");
         Employee Chester = new Employee("Chester Aldrin Uy");
+        Customer Buddy = new Customer("Buddy", false, 65, 10000.50f);
+        Customer Friend = new Customer("Friend", true, 18, 1000.50f);
         convenience.addEmployee(Jose);
         convenience.addEmployee(Chester);
+        convenience.addCustomer(Buddy);
+        convenience.addCustomer(Friend);
 
         Food Cloud9Classic =  new Food("CLoud9Classic", "Cloud9", "Classic", 10, 10.55f);
         Food VcutBarbeque = new Food("VcutBarbeque", "Vcut", "Barbeque", 10, 18.70f);
@@ -481,6 +516,17 @@ public class convenienceStore {
 
         switch(identifyAs){
             case 'C': case 'c':
+                System.out.println("Pick a customer: ");
+                convenience.showCustomers();
+                String customer_name = main.nextLine();
+                Customer customer_chosen;
+                for (int i = 0; i < convenience.getCustomers().size(); i++){
+                    if (customer_name == convenience.getCustomers().get(i).getName()){
+                        customer_chosen = convenience.getCustomers().get(i);
+                        i = convenience.getCustomers().size();
+                    }
+                }
+
                 ArrayList<Product> productQuery = convenience.getProducts();
 
                 System.out.println("Good day, customer! What would you like to buy?\n");
@@ -509,6 +555,7 @@ public class convenienceStore {
 
                         switch(action){
                             case 'B': case 'b':
+                                proceedtoCheckout()
                                 checkout.CalculateTotal();
                                 checkout.giveChange();
                                 checkout.printReceipt();
@@ -522,8 +569,8 @@ public class convenienceStore {
                 }
                 break;
             case 'E': case 'e':
-                Store_System system = new Store_System();
-                ArrayList<Employee> authorizedEmployeeList = system.getEmployees();
+                
+                ArrayList<Employee> authorizedEmployeeList = convenience.getEmployees();
 
                 Scanner employed = new Scanner(System.in);
                 System.out.print("Please enter your name for verification: ");
