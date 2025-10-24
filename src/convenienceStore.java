@@ -209,10 +209,10 @@ class Employee{
         for (int i = 0; i < noOfProductStock; i++) {
             shelf.getProducts().add(stockInventory.get(i));
         }
+
         for (int i = 0; i < noOfProductStock; i++) {
             stockInventory.remove(stockInventory.get(i));
         }
-
     }
 
     public String getName(){
@@ -257,40 +257,40 @@ class Shelf{
  * @version     %I%
  */
 
-class Customer{
-    private String name;
-    private boolean membership;
-    private int age;
-    private float money;
-    private ArrayList<Product> products_got;
-
-    public Customer(String name, boolean membership, int age, float money){
-        this.name = name;
-        this.membership = membership;
-        this.age = age;
-        this.money = money;
-    }
-
-    public void selectProduct(Shelf shelf, Product product){
-        products_got.add(product);
-    }
-
-    public ArrayList<Product> getAllProducts(){
-        return products_got;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    public int getAge(){
-        return age;
-    }
-
-    public boolean getMembership(){
-        return membership;
-    }
-}
+//class Customer{
+//    private String name;
+//    private boolean membership;
+//    private int age;
+//    private float money;
+//    private ArrayList<Product> products_got;
+//
+//    public Customer(String name, boolean membership, int age, float money){
+//        this.name = name;
+//        this.membership = membership;
+//        this.age = age;
+//        this.money = money;
+//    }
+//
+//    public void selectProduct(Shelf shelf, Product product){
+//        products_got.add(product);
+//    }
+//
+//    public ArrayList<Product> getAllProducts(){
+//        return products_got;
+//    }
+//
+//    public String getName(){
+//        return name;
+//    }
+//
+//    public int getAge(){
+//        return age;
+//    }
+//
+//    public boolean getMembership(){
+//        return membership;
+//    }
+//}
 
 /*
  * Calculates the checkout based on the given requirements.
@@ -299,51 +299,51 @@ class Customer{
  * @version     %I%
  */
 
-class Checkout{
-    private float total_cost;
-    private float amount_given;
-    private Customer customer;
-
-    public void setCustomer(Customer customer){
-        this.customer = customer;
-    }
-
-    public float computeDiscountLogic(){
-        if (customer.getAge() >= 60 && customer.getMembership()){  // Senior and Member
-            return 0.30f;
-        } else if (customer.getAge() <= 60 && customer.getMembership()) {  // Member only
-            return 0.10f;
-        } else if (customer.getAge() >= 60 && !customer.getMembership()) {  // Senior only
-            return 0.20f;
-        } else {
-            return 0.00f;
-        }
-    }
-
-    public float CalculateTotal(){
-        for(int i = 0; i < customer.getAllProducts().size(); i++){
-           total_cost += customer.getAllProducts().get(i).multiplyProductByQuantity();
-        }
-
-        return total_cost - (this.computeDiscountLogic() * total_cost);
-    }
-
-    public float giveChange(){
-        Scanner iLoveCash = new Scanner(System.in);
-
-        System.out.print("Enter amount given: Php");
-        amount_given = iLoveCash.nextFloat();
-
-        if(amount_given >= this.CalculateTotal())
-            return amount_given - this.CalculateTotal();
-
-        return 0;
-    }
-
-    public Receipt printReceipt(){
-        return new Receipt(customer.getAllProducts(), CalculateTotal(), amount_given, giveChange());
-    }
-}
+//class Checkout{
+//    private float total_cost;
+//    private float amount_given;
+//    private Customer customer;
+//
+//    public void setCustomer(Customer customer){
+//        this.customer = customer;
+//    }
+//
+//    public float computeDiscountLogic(){
+//        if (customer.getAge() >= 60 && customer.getMembership()){  // Senior and Member
+//            return 0.30f;
+//        } else if (customer.getAge() <= 60 && customer.getMembership()) {  // Member only
+//            return 0.10f;
+//        } else if (customer.getAge() >= 60 && !customer.getMembership()) {  // Senior only
+//            return 0.20f;
+//        } else {
+//            return 0.00f;
+//        }
+//    }
+//
+//    public float CalculateTotal(){
+//        for(int i = 0; i < customer.getAllProducts().size(); i++){
+//           total_cost += customer.getAllProducts().get(i).multiplyProductByQuantity();
+//        }
+//
+//        return total_cost - (this.computeDiscountLogic() * total_cost);
+//    }
+//
+//    public float giveChange(){
+//        Scanner iLoveCash = new Scanner(System.in);
+//
+//        System.out.print("Enter amount given: Php");
+//        amount_given = iLoveCash.nextFloat();
+//
+//        if(amount_given >= this.CalculateTotal())
+//            return amount_given - this.CalculateTotal();
+//
+//        return 0;
+//    }
+//
+//    public Receipt printReceipt(){
+//        return new Receipt(customer.getAllProducts(), CalculateTotal(), amount_given, giveChange());
+//    }
+//}
 
 /*
  * Displays the receipt upon purchasing our products.
@@ -352,33 +352,33 @@ class Checkout{
  * @version     %I%
  */
 
-class Receipt{
-    private final ArrayList<Product> purchases;
-    private final float total_cost;
-    private final float received_amount;
-    private final float change;
+//class Receipt{
+//    private final ArrayList<Product> purchases;
+//    private final float total_cost;
+//    private final float received_amount;
+//    private final float change;
 //    private final float timestamp;
-
-    public Receipt(ArrayList<Product> purchases, float total_cost, float received_amount, float change){
-        this.purchases = purchases;
-        this.total_cost = total_cost;
-        this.received_amount = received_amount;
-        this.change = change;
+//
+//    public Receipt(ArrayList<Product> purchases, float total_cost, float received_amount, float change){
+//        this.purchases = purchases;
+//        this.total_cost = total_cost;
+//        this.received_amount = received_amount;
+//        this.change = change;
 //        this.timestamp = timestamp;
-    }
-
-    public void issueReceipt(){
-        System.out.println("Purchased Items: ");
-        for (Product boughtItems : purchases){
-            System.out.println(boughtItems.getName() + " | Quantity: " + boughtItems.getQuantity() + " | Total Price:" + boughtItems.multiplyProductByQuantity());
-        }
-
-        System.out.println("Total Cost: " + total_cost);
-        System.out.println("Received Amount: " + received_amount);
-        System.out.println("Change: " + change);
+//    }
+//
+//    public void issueReceipt(){
+//        System.out.println("Purchased Items: ");
+//        for (Product boughtItems : purchases){
+//            System.out.println(boughtItems.getName() + " | Quantity: " + boughtItems.getQuantity() + " | Total Price:" + boughtItems.multiplyProductByQuantity());
+//        }
+//
+//        System.out.println("Total Cost: " + total_cost);
+//        System.out.println("Received Amount: " + received_amount);
+//        System.out.println("Change: " + change);
 //        System.out.println("Time Stamped: " + timestamp);
-    }
-}
+//    }
+//}
 
 /*
  * System-logged usage of the convenienceStore application.
@@ -392,31 +392,31 @@ class Store_System{
     private ArrayList<Product> products;
 //    private int total_products;
 //    private ArrayList<Shelf> shelves = new ArrayList<>();
-    private Checkout checkout;
-    private ArrayList<Customer> customers;
+//    private Checkout checkout;
+//    private ArrayList<Customer> customers;
 
     public void addEmployee(Employee employee){
         employees.add(employee);
     }
 
-    public void addCustomer(Customer customer){
-        customers.add(customer);
-    }
-
-
-    public showCustomers(){
-        for (Customer customer_pick : customers){
-            System.out.println(customer_pick.getName());
-        }
-    } 
+//    public void addCustomer(Customer customer){
+//        customers.add(customer);
+//    }
+//
+//
+//    public showCustomers(){
+//        for (Customer customer_pick : customers){
+//            System.out.println(customer_pick.getName());
+//        }
+//    }
 
     public ArrayList<Employee> getEmployees(){
         return employees;
     }
 
-    public ArrayList<Customer> getCustomers(){
-        return customers;
-    }
+//    public ArrayList<Customer> getCustomers(){
+//        return customers;
+//    }
 
     public ArrayList<Product> getProducts(){
         return products;
@@ -426,11 +426,9 @@ class Store_System{
         products.add(product);
     }
 
-    public void proceedtoCheckout(Customer customer){
-        checkout.setCustomer(customer);
-    }
-
-    
+//    public void proceedtoCheckout(Customer customer){
+//        checkout.setCustomer(customer);
+//    }
 }
 
 /*
@@ -447,12 +445,12 @@ public class convenienceStore {
         Scanner main = new Scanner(System.in);
         Employee Jose = new Employee("Jose Perez");
         Employee Chester = new Employee("Chester Aldrin Uy");
-        Customer Buddy = new Customer("Buddy", false, 65, 10000.50f);
-        Customer Friend = new Customer("Friend", true, 18, 1000.50f);
+//        Customer Buddy = new Customer("Buddy", false, 65, 10000.50f);
+//        Customer Friend = new Customer("Friend", true, 18, 1000.50f);
         convenience.addEmployee(Jose);
         convenience.addEmployee(Chester);
-        convenience.addCustomer(Buddy);
-        convenience.addCustomer(Friend);
+//        convenience.addCustomer(Buddy);
+//        convenience.addCustomer(Friend);
 
         Food Cloud9Classic =  new Food("CLoud9Classic", "Cloud9", "Classic", 10, 10.55f);
         Food VcutBarbeque = new Food("VcutBarbeque", "Vcut", "Barbeque", 10, 18.70f);
@@ -516,57 +514,58 @@ public class convenienceStore {
 
         switch(identifyAs){
             case 'C': case 'c':
-                System.out.println("Pick a customer: ");
-                convenience.showCustomers();
-                String customer_name = main.nextLine();
-                Customer customer_chosen;
-                for (int i = 0; i < convenience.getCustomers().size(); i++){
-                    if (customer_name == convenience.getCustomers().get(i).getName()){
-                        customer_chosen = convenience.getCustomers().get(i);
-                        i = convenience.getCustomers().size();
-                    }
-                }
-
-                ArrayList<Product> productQuery = convenience.getProducts();
-
-                System.out.println("Good day, customer! What would you like to buy?\n");
-                System.out.println("Shelf: [1][2][3][4][5][6][7][8][9][10]");
-                System.out.println("Category: [F]ood, [B]everages, [T]oiletries, [C]leaning Products, [M]edications");
-
-                System.out.println("Product Name | Category | Brand | Variant | Quantity | Price");
-                for(Product showProducts : productQuery) {
-                    System.out.println(showProducts.getName() + " | " + showProducts.getCategory() + " | " + showProducts.getBrand() + " | " + showProducts.getVariant() + " | " + showProducts.getPrice() + " | " );
-                }
-
-                Scanner view = new Scanner(System.in);
-                System.out.println("Copy the Product Name below to view the product: ");
-                String inputProductName = view.nextLine();
-
-                for(Product showProducts : productQuery) {
-                    if (showProducts.getName().equals(inputProductName)) {
-                        Product currentProduct = new Product(showProducts.getName(), showProducts.getBrand(), showProducts.getVariant(), showProducts.getQuantity(), showProducts.getPrice());
-                        currentProduct.showProductInformation();
-
-                        Scanner productAction = new Scanner(System.in);
-                        System.out.println("Actions: ");
-                        System.out.println("[B]uy Now | [A]dd to Cart | [<] Back");
-                        char action = productAction.next().charAt(0);
-                        Checkout checkout = new Checkout();
-
-                        switch(action){
-                            case 'B': case 'b':
-                                proceedtoCheckout()
-                                checkout.CalculateTotal();
-                                checkout.giveChange();
-                                checkout.printReceipt();
-                                break;
-                            case 'A': case 'a':
-                                break;
-                            case '<':
-                                break;
-                        }
-                    }
-                }
+//                System.out.println("Pick a customer: ");
+//                convenience.showCustomers();
+//                String customer_name = main.nextLine();
+//                Customer customer_chosen;
+//                for (int i = 0; i < convenience.getCustomers().size(); i++){
+//                    if (customer_name == convenience.getCustomers().get(i).getName()){
+//                        customer_chosen = convenience.getCustomers().get(i);
+//                        i = convenience.getCustomers().size();
+//                    }
+//                }
+//
+//                ArrayList<Product> productQuery = convenience.getProducts();
+//
+//                System.out.println("Good day, customer! What would you like to buy?\n");
+//                System.out.println("Shelf: [1][2][3][4][5][6][7][8][9][10]");
+//                System.out.println("Category: [F]ood, [B]everages, [T]oiletries, [C]leaning Products, [M]edications");
+//
+//                System.out.println("Product Name | Category | Brand | Variant | Quantity | Price");
+//                for(Product showProducts : productQuery) {
+//                    System.out.println(showProducts.getName() + " | " + showProducts.getCategory() + " | " + showProducts.getBrand() + " | " + showProducts.getVariant() + " | " + showProducts.getPrice() + " | " );
+//                }
+//
+//                Scanner view = new Scanner(System.in);
+//                System.out.println("Copy the Product Name below to view the product: ");
+//                String inputProductName = view.nextLine();
+//
+//                for(Product showProducts : productQuery) {
+//                    if (showProducts.getName().equals(inputProductName)) {
+//                        Product currentProduct = new Product(showProducts.getName(), showProducts.getBrand(), showProducts.getVariant(), showProducts.getQuantity(), showProducts.getPrice());
+//                        currentProduct.showProductInformation();
+//
+//                        Scanner productAction = new Scanner(System.in);
+//                        System.out.println("Actions: ");
+//                        System.out.println("[B]uy Now | [A]dd to Cart | [<] Back");
+//                        char action = productAction.next().charAt(0);
+//                        Checkout checkout = new Checkout();
+//
+//                        switch(action){
+//                            case 'B': case 'b':
+//                                proceedtoCheckout();
+//                                checkout.CalculateTotal();
+//                                checkout.giveChange();
+//                                checkout.printReceipt();
+//                                break;
+//                            case 'A': case 'a':
+//                                break;
+//                            case '<':
+//                                break;
+//                        }
+//                    }
+//                }
+                System.out.println("This function is currently under maintenance. The program will now exit.");
                 break;
             case 'E': case 'e':
                 
