@@ -247,10 +247,19 @@ class Employee{
     String name;
     private static ArrayList<Product> stockInventory;
 
+    /*
+     * Retrieves the name of the registered employee.
+     *
+     * @param  name of the employee (assumes that it's our names)
+     */
     public Employee(String name){
         this.name = name;
     }
 
+    /*
+     * Requests the system to list the product. This action can
+     * only be interacted by the Employee.
+     */
     public static void addProduct(){
         Scanner createProduct = new Scanner(System.in);
 
@@ -268,31 +277,66 @@ class Employee{
         stockInventory.add(new Product(productName, productBrand, productVariant, productQuantity, productPrice));
     }
 
+    /*
+     * Applies the selected product into the Foods category,
+     * assuming that the product classifies as "Food".
+     *
+     * @param  index list number of the product
+     */
     public void categorizeToFood(int index){
         Food foodHolder = new Food(stockInventory.get(index).getName(),  stockInventory.get(index).getBrand(), stockInventory.get(index).getVariant(), stockInventory.get(index).getQuantity(), stockInventory.get(index).getPrice());
         stockInventory.set(index, foodHolder);
     }
 
+    /*
+     * Applies the selected product into the Beverages category,
+     * assuming that the product classifies as "Beverage".
+     *
+     * @param  index list number of the product
+     */
     public void categorizeToBev(int index){
         Beverages bevHolder = new Beverages(stockInventory.get(index).getName(),  stockInventory.get(index).getBrand(), stockInventory.get(index).getVariant(), stockInventory.get(index).getQuantity(), stockInventory.get(index).getPrice());
         stockInventory.set(index, bevHolder);
     }
 
+    /*
+     * Applies the selected product into the Toiletries category,
+     * assuming that the product classifies as "Toiletry".
+     *
+     * @param  index list number of the product
+     */
     public void categorizeToToil(int index){
         Toiletries toilHolder = new Toiletries(stockInventory.get(index).getName(),  stockInventory.get(index).getBrand(), stockInventory.get(index).getVariant(), stockInventory.get(index).getQuantity(), stockInventory.get(index).getPrice());
         stockInventory.set(index, toilHolder);
     }
 
+    /*
+     * Applies the selected product into the Cleaning Products category,
+     * assuming that the product classifies as "Cleaning Product".
+     *
+     * @param  index list number of the product
+     */
     public void categorizeToClean(int index){
         Cleaning_Products cleanHolder = new Cleaning_Products(stockInventory.get(index).getName(),  stockInventory.get(index).getBrand(), stockInventory.get(index).getVariant(), stockInventory.get(index).getQuantity(), stockInventory.get(index).getPrice());
         stockInventory.set(index, cleanHolder);
     }
 
+    /*
+     * Applies the selected product into the Medications category,
+     * assuming that the product classifies as "Medication".
+     *
+     * @param  index list number of the product
+     */
     public void categorizeToMed(int index){
         Medications medHolder = new Medications(stockInventory.get(index).getName(),  stockInventory.get(index).getBrand(), stockInventory.get(index).getVariant(), stockInventory.get(index).getQuantity(), stockInventory.get(index).getPrice());
         stockInventory.set(index, medHolder);
     }
 
+    /*
+     * Stores the new product stock to the specific Shelf.
+     *
+     * @param  shelf the Shelf of the convenienceStore
+     */
     public static void reStock(Shelf shelf){
         for (Product newStock : stockInventory){
             shelf.getProducts().add(newStock);
@@ -300,6 +344,11 @@ class Employee{
         stockInventory.clear();
     }
 
+    /*
+     * Updates the product quantity to the specific Shelf.
+     *
+     * @param  shelf the Shelf of the convenienceStore
+     */
     public static void reStock(Shelf shelf, int noOfProductStock){
         for (int i = 0; i < noOfProductStock; i++) {
             shelf.getProducts().add(stockInventory.get(i));
@@ -310,6 +359,12 @@ class Employee{
         }
     }
 
+    /*
+     * Retrieves the registered name of the product listed by
+     * the Employee.
+     *
+     * @return the value of String name of the product
+     */
     public String getName(){
         return name;
     }
@@ -325,20 +380,50 @@ class Shelf{
     private final int shelf_number;
     private ArrayList<Product> products;
 
+    /*
+     * Stores the product information. A product should have five (5) key
+     * fields before listing the item.
+     *
+     * @param  name     the name of the particular product
+     * @param  brand    the brand of the particular product
+     * @param  variant  type of purpose in the particular product
+     * @param  quantity product's current availability stock
+     * @param  price    cost of the price that the customer needs to pay
+     */
     public Shelf(int shelf_number){
         this.shelf_number = shelf_number;
     }
 
+    /*
+     * Stores the product information. A product should have five (5) key
+     * fields before listing the item.
+     *
+     * @param  name     the name of the particular product
+     * @param  brand    the brand of the particular product
+     * @param  variant  type of purpose in the particular product
+     * @param  quantity product's current availability stock
+     * @param  price    cost of the price that the customer needs to pay
+     */
     public void showProducts(){
         for(Product product : products){
             product.showProductInformation();
         }
     }
 
+    /*
+     * Retrieves the registered Shelf of the convenienceStore.
+     *
+     * @return the value of Shelf number
+     */
     public int getShelfNumber(){
         return shelf_number;
     }
 
+    /*
+     * Retrieves the collection of products in the Shelf
+     *
+     * @return the value of every listed product
+     */
     public ArrayList<Product> getProducts(){
         return products;
     }
