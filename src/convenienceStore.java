@@ -16,6 +16,16 @@ class Product{
     private float price;
     private int quantity;
 
+    /*
+     * Stores the product information. A product should have five (5) key
+     * fields before listing the item.
+     *
+     * @param  name     the name of the particular product
+     * @param  brand    the brand of the particular product
+     * @param  variant  type of purpose in the particular product
+     * @param  quantity product's current availability stock
+     * @param  price    cost of the price that the customer needs to pay
+     */
     public Product(String name, String brand, String variant, int quantity, float price){
         this.name = name;
         this.brand = brand;
@@ -24,6 +34,11 @@ class Product{
         this.price = price;
     }
 
+    /*
+     * Registers the text to the Command Prompt to display the product
+     * information. Each printed line releases the output of these key
+     * fields.
+     */
     public void showProductInformation(){
         System.out.println(name);
         System.out.println(category);
@@ -33,10 +48,22 @@ class Product{
         System.out.println(price);
     }
 
+    /*
+     * Retrieves the registered price of the product listed by
+     * the Employee.
+     *
+     * @return the value of float price of the product
+     */
     public float getPrice(){
         return price;
     }
 
+    /*
+     * Retrieves the registered name of the product listed by
+     * the Employee.
+     *
+     * @return the value of String name of the product
+     */
     public String getName(){
         return name;
     }
@@ -45,18 +72,47 @@ class Product{
 //        return category;
 //    }
 
+    /*
+     * Retrieves the registered brand of the product listed by
+     * the Employee.
+     *
+     * @return the value of String brand of the product
+     */
     public String getBrand(){
         return brand;
     }
 
+    /*
+     * Retrieves the registered variant of the product listed by
+     * the Employee.
+     *
+     * @return the value of String variant of the product
+     */
     public String getVariant(){
         return variant;
     }
 
+    /*
+     * Retrieves the registered quantity of the product listed by
+     * the Employee.
+     *
+     * @return the value of int quantity of the product
+     */
     public int getQuantity(){
         return quantity;
     }
 
+    /*
+     * Updates the values of the product information. One and any of
+     * the key fields may update just by taking the setValues()
+     * parameters and assign it to the same set of attributes.
+     *
+     * @param  name     the name of the particular product
+     * @param  brand    the brand of the particular product
+     * @param  variant  type of purpose in the particular product
+     * @param  quantity product's current availability stock
+     * @param  price    cost of the price that the customer needs to pay
+     */
     public void setValues(String name, String brand, String variant, int quantity, float price){
         this.name = name;
         this.brand = brand;
