@@ -394,6 +394,12 @@ class Store_System{
     public ArrayList<Product> getProducts(){
         return products;
     }
+
+    public void stockinitialProducts(Product product){
+        products.add(product);
+    }
+
+    
 }
 
 /*
@@ -413,6 +419,33 @@ public class convenienceStore {
         convenience.addEmployee(Jose);
         convenience.addEmployee(Chester);
 
+<<<<<<< HEAD
+        Food Cloud9Classic =  new Food("CLoud9Classic", "Cloud9", "Classic", 10, 10.55f);
+        Food VcutBarbeque = new Food("VcutBarbeque", "Vcut", "Barbeque", 10, 18.70f);
+        Food VcutCheese = new Food("VcutCheese", "Vcut", "Cheese", 10, 18.70f);
+        Food PiattosSourCream = new Food("PiattosSourCream", "Piattos", "SourCream", 10, 16.31f);
+        Food PiattosCheese = new Food("PiattosCheese", "Piattos", "Cheese", 10, 16.31f);
+        Beverages C2Red = new Beverages("C2Red", "C2", "Red", 10, 26.50f);
+        Beverages C2Yellow = new Beverages("C2Yellow", "C2", "Yellow", 10, 26.50f);
+        Beverages CokeRegular = new Beverages("CokeRegular", "Coke", "Regular", 10, 28.50f);
+        Beverages CokeZero = new Beverages("CokeZero", "Coke", "Zero", 10, 28.50f);
+        Beverages RoyalClassic = new ("RoyalClassic", "Royal", "Classic", 10, 27.25f);
+        Toiletries ColgateTripleAction  = new Toiletries("ColgateTripleAction", "Colgate", "TripleAction", 10, 76.50f);
+        Toiletries ColgateAntiCavity  = new Toiletries("ColgateAntiCavity", "Colgate", "AntiCavity", 10, 76.50f);
+        Toiletries SafeguardPureWhite = new Toiletries("SafeguardPureWhite", "Safeguard", "PureWhite", 10, 50.25f);
+        Toiletries SafeguardLemon = new Toiletries("SafeguardLemon", "Safeguard". "Lemon", 10, 50.25f);
+        Toiletries OldSpiceOriginal = new Toiletries("OldSpiceOriginal", "OldSpice", "Original", 10, 243.00f);
+        Cleaning_Products GreenCrossAlcoholClassic  = new Cleaning_Products("GreenCrossAlcoholClassic", "GreenCross", "AlcoholClassic", 10, 65.75f);
+        Cleaning_Products TideDetergent  = new Cleaning_Products("TideDetergent", "Tide", "Detergent", 10, 262.50f);
+        Cleaning_Products TideBar  = new Cleaning_Products("TideBar", "Tide", "Bar", 10, 14.70f);
+        Cleaning_Products ScotchBriteYellow  = new Cleaning_Products("ScotchBriteYellow", "ScotchBrite", "Yellow", 10, 71.50f);
+        Cleaning_Products ScotchBriteBlue  = new Cleaning_Products("ScotchBriteBlue", "ScotchBrite", "Blue", 10, 71.50f);
+        Medications Paracetamol = new Medications("Paracetamol", );
+        Medications Benadryl = new Medications("Benadryl",  );
+        Medications Ibuprofen = new Medications("Ibuprofen", );
+        Medications Aspirin = new Medications("Aspirin",);
+        Medications Acetaminophen = new Medications("Acetaminophen", );
+=======
         Food Cloud9Classic =  new Food("CLoud9Classic", "Cloud9", "Classic", 5, 10.55f);
         Food VcutBarbeque = new Food("VcutBarbeque", "Vcut", "Barbeque", 5, 18.70f);
         Food VcutCheese = new Food("VcutCheese", "Vcut", "Cheese", 5, 18.70f);
@@ -438,6 +471,7 @@ public class convenienceStore {
 //        Medications d = new Medications();
 //        Medications i = new Medications();
 //        Medications c = new Medications();
+>>>>>>> 8a2c4fd79e7d0899d8791fa783abb724d4fe1152
 
         // Switch case for the Customer and Employee
         System.out.println("Welcome to U&P's Convenience Store Application!");
