@@ -422,11 +422,11 @@ class Store_System{
         return products;
     }
 
-    public void stockinitialProducts(Product product){
+    public void stockInitialProducts(Product product){
         products.add(product);
     }
 
-//    public void proceedtoCheckout(Customer customer){
+//    public void proceedToCheckout(Customer customer){
 //        checkout.setCustomer(customer);
 //    }
 }
@@ -478,31 +478,31 @@ public class convenienceStore {
         Medications DecolgenNonDrowsy = new Medications("DecolgenNonDrowsy", "Decolgen", "NonDrowsyTablet", 10, 13.15f);
         Medications Trimox = new Medications("Trimox", "Trimox", "Tablet", 10, 28.35f);
 
-        convenience.stockinitialProducts(Cloud9Classic);
-        convenience.stockinitialProducts(VcutBarbeque);
-        convenience.stockinitialProducts(VcutCheese);
-        convenience.stockinitialProducts(PiattosSourCream);
-        convenience.stockinitialProducts(PiattosCheese);
-        convenience.stockinitialProducts(C2Red);
-        convenience.stockinitialProducts(C2Yellow);
-        convenience.stockinitialProducts(CokeRegular);
-        convenience.stockinitialProducts(CokeZero);
-        convenience.stockinitialProducts(RoyalClassic);
-        convenience.stockinitialProducts(ColgateTripleAction);
-        convenience.stockinitialProducts(ColgateAntiCavity);
-        convenience.stockinitialProducts(SafeguardPureWhite);
-        convenience.stockinitialProducts(SafeguardLemon);
-        convenience.stockinitialProducts(OldSpiceOriginal);
-        convenience.stockinitialProducts(GreenCrossAlcoholClassic);
-        convenience.stockinitialProducts(TideDetergent);
-        convenience.stockinitialProducts(TideBar);
-        convenience.stockinitialProducts(ScotchBriteYellow);
-        convenience.stockinitialProducts(ScotchBriteBlue);
-        convenience.stockinitialProducts(TempraForte);
-        convenience.stockinitialProducts(SolmuxCapsule);
-        convenience.stockinitialProducts(Dolfenal);
-        convenience.stockinitialProducts(DecolgenNonDrowsy);
-        convenience.stockinitialProducts(Trimox);
+        convenience.stockInitialProducts(Cloud9Classic);
+        convenience.stockInitialProducts(VcutBarbeque);
+        convenience.stockInitialProducts(VcutCheese);
+        convenience.stockInitialProducts(PiattosSourCream);
+        convenience.stockInitialProducts(PiattosCheese);
+        convenience.stockInitialProducts(C2Red);
+        convenience.stockInitialProducts(C2Yellow);
+        convenience.stockInitialProducts(CokeRegular);
+        convenience.stockInitialProducts(CokeZero);
+        convenience.stockInitialProducts(RoyalClassic);
+        convenience.stockInitialProducts(ColgateTripleAction);
+        convenience.stockInitialProducts(ColgateAntiCavity);
+        convenience.stockInitialProducts(SafeguardPureWhite);
+        convenience.stockInitialProducts(SafeguardLemon);
+        convenience.stockInitialProducts(OldSpiceOriginal);
+        convenience.stockInitialProducts(GreenCrossAlcoholClassic);
+        convenience.stockInitialProducts(TideDetergent);
+        convenience.stockInitialProducts(TideBar);
+        convenience.stockInitialProducts(ScotchBriteYellow);
+        convenience.stockInitialProducts(ScotchBriteBlue);
+        convenience.stockInitialProducts(TempraForte);
+        convenience.stockInitialProducts(SolmuxCapsule);
+        convenience.stockInitialProducts(Dolfenal);
+        convenience.stockInitialProducts(DecolgenNonDrowsy);
+        convenience.stockInitialProducts(Trimox);
 
         // Switch case for the Customer and Employee
         System.out.println("Welcome to U&P's Convenience Store Application!");
