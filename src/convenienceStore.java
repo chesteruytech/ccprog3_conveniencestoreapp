@@ -313,6 +313,23 @@ class Employee{
     public String getName(){
         return name;
     }
+
+    public void updateProduct(Product product){
+        Scanner updateProduct = new Scanner(System.in);
+
+        System.out.println("Product name: ");
+        String productName = updateProduct.nextLine();
+        System.out.println("Brand: ");
+        String productBrand = updateProduct.nextLine();
+        System.out.println("Variant: ");
+        String productVariant = updateProduct.nextLine();
+        System.out.println("Quantity: ");
+        int productQuantity = updateProduct.nextInt();
+        System.out.println("Price: ");
+        float productPrice = updateProduct.nextFloat();
+        
+        product.setValues(productName, productBrand, productVariant, productQuantity, productPrice);
+    }
 }
 
 /*
