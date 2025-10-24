@@ -428,6 +428,16 @@ public class convenienceStore {
         Toiletries SafeguardPureWhite = new Toiletries("SafeguardPureWhite", "Safeguard", "PureWhite", 5, 50.25f);
         Toiletries SafeguardLemon = new Toiletries("SafeguardLemon", "Safeguard". "Lemon", 5, 50.25f);
         Toiletries OldSpiceOriginal = new Toiletries("OldSpiceOriginal", "OldSpice", "Original", 5, 243.00f);
+        Cleaning_Products GreenCrossAlcoholClassic  = new Cleaning_Products("GreenCrossAlcoholClassic", "GreenCross", "AlcoholClassic", 5, 65.75f);
+        Cleaning_Products TideDetergent  = new Cleaning_Products("TideDetergent", "Tide", "Detergent", 5, 262.50f);
+        Cleaning_Products TideBar  = new Cleaning_Products("TideBar", "Tide", "Bar", 5, 14.70f);
+        Cleaning_Products ScotchBriteYellow  = new Cleaning_Products("ScotchBriteYellow", "ScotchBrite", "Yellow", 5, 71.50f);
+        Cleaning_Products ScotchBriteBlue  = new Cleaning_Products("ScotchBriteBlue", "ScotchBrite", "Blue", 5, 71.50f);
+        Medications m = new Medications();
+        Medications e = new Medications();
+        Medications d = new Medications();
+        Medications i = new Medications();
+        Medications c = new Medications();
 
         // Switch case for the Customer and Employee
         System.out.println("Welcome to U&P's Convenience Store Application!");
