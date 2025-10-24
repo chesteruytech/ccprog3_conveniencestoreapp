@@ -423,7 +423,7 @@ public class convenienceStore {
 
         switch(identifyAs){
             case 'C': case 'c':
-                Shelf inside = new Shelf();
+                Store_System inside = new Store_System();
                 ArrayList<Product> productQuery = inside.getProducts();
 
                 System.out.println("Good day, customer! What would you like to buy?\n");
