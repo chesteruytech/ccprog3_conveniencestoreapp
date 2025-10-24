@@ -257,7 +257,7 @@ class Customer{
     private boolean membership;
     private int age;
     private ArrayList<Product> products_got;
-    private float money;
+    private float money = 0.00f;
 
     public Customer(String name, boolean membership, int age, float money){
         this.name = name;
@@ -348,11 +348,11 @@ class Checkout{
  */
 
 class Receipt{
-    private ArrayList<Product> purchases;
-    private float total_cost;
-    private float received_amount;
-    private float change;
-//    private float timestamp;
+    private final ArrayList<Product> purchases;
+    private final float total_cost;
+    private final float received_amount;
+    private final float change;
+//    private final float timestamp;
 
     public Receipt(ArrayList<Product> purchases, float total_cost, float received_amount, float change){
         this.purchases = purchases;
@@ -400,6 +400,14 @@ class Store_System{
     public ArrayList<Product> getProducts(){
         return products;
     }
+
+    public String getProductName(String productName){
+        for (Product product : products){
+            productName = product.getName();
+        }
+
+        return productName;
+    }
 }
 
 /*
@@ -433,6 +441,9 @@ public class convenienceStore {
                 ArrayList<Product> productQuery = inside.getProducts();
 
                 System.out.println("Good day, customer! What would you like to buy?\n");
+                System.out.println("Shelf: [1][2][3][4][5][6][7][8][9][10]");
+                System.out.println("Category: [F]ood, [B]everages, [T]oiletries, [C]leaning Products, [M]edications");
+
                 System.out.println("Product Name | Category | Brand | Variant | Quantity | Price");
                 for(Product showProducts : productQuery) {
                     System.out.println(showProducts.getName() + " | " + showProducts.getCategory() + " | " + showProducts.getBrand() + " | " + showProducts.getVariant() + " | " + showProducts.getPrice() + " | " );
@@ -441,8 +452,9 @@ public class convenienceStore {
                 Scanner view = new Scanner(System.in);
                 System.out.println("Copy the Product Name below to view the product: ");
                 String inputProductName = view.nextLine();
+                String existingProduct = inside.getProductName(inputProductName);
 
-                if (productQuery.get(productQuery.indexOf()).getName().equals(inputProductName)) {
+                if (existingProduct.equals(inputProductName)) {
                     Product currentProduct = new Product();
                     currentProduct.showProductInformation();
 
