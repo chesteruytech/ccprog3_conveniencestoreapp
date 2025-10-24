@@ -257,13 +257,11 @@ class Customer{
     private boolean membership;
     private int age;
     private ArrayList<Product> products_got;
-    private float money;
 
     public Customer(String name, boolean membership, int age, float money){
         this.name = name;
         this.membership = membership;
         this.age = age;
-        this.money = money;
     }
 
     public void selectProduct(Shelf shelf, Product product){
@@ -284,10 +282,6 @@ class Customer{
 
     public boolean getMembership(){
         return membership;
-    }
-
-    public void payUp(float money){
-        this.money = money;
     }
 }
 
