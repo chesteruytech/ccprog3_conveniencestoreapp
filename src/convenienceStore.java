@@ -369,7 +369,7 @@ class Employee{
         return name;
     }
 
-    public void updateProduct(Product product){
+    public void changeProduct(Product product){
         Scanner updateProduct = new Scanner(System.in);
 
         System.out.println("Product name: ");
