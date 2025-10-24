@@ -376,7 +376,7 @@ class Shelf{
 //        System.out.println("Total Cost: " + total_cost);
 //        System.out.println("Received Amount: " + received_amount);
 //        System.out.println("Change: " + change);
-//        System.out.println("Time Stamped: " + timestamp);
+////        System.out.println("Time Stamped: " + timestamp);
 //    }
 //}
 
