@@ -412,6 +412,7 @@ public class convenienceStore {
         Employee Chester = new Employee("Chester Aldrin Uy");
         convenience.addEmployee(Jose);
         convenience.addEmployee(Chester);
+
         Food Cloud9Classic =  new Food("CLoud9Classic", "Cloud9", "Classic", 5, 10.55f);
         Food VcutBarbeque = new Food("VcutBarbeque", "Vcut", "Barbeque", 5, 18.70f);
         Food VcutCheese = new Food("VcutCheese", "Vcut", "Cheese", 5, 18.70f);
@@ -421,12 +422,12 @@ public class convenienceStore {
         Beverages C2Yellow = new Beverages("C2Yellow", "C2", "Yellow", 5, 26.50f);
         Beverages CokeRegular = new Beverages("CokeRegular", "Coke", "Regular", 5, 28.50f);
         Beverages CokeZero = new Beverages("CokeZero", "Coke", "Zero", 5, 28.50f);
-        Beverages RoyalClassic = new ("RoyalClassic", "Royal", "Classic", 5, 27.25f);
-        Toiletries Colgate  = new Toiletries("Colgate");
-        Toiletries Colgate  = new Toiletries();
-        Toiletries SafeguardPureWhite = new Toiletries();
-        Toiletries SafeguardLemon = new Toiletries();
-        Toiletries
+        Beverages RoyalClassic = new Beverages ("RoyalClassic", "Royal", "Classic", 5, 27.25f);
+//        Toiletries Colgate  = new Toiletries("Colgate");
+//        Toiletries Colgate  = new Toiletries();
+//        Toiletries SafeguardPureWhite = new Toiletries();
+//        Toiletries SafeguardLemon = new Toiletries();
+//        Toiletries
 
         // Switch case for the Customer and Employee
         System.out.println("Welcome to U&P's Convenience Store Application!");
@@ -438,8 +439,7 @@ public class convenienceStore {
 
         switch(identifyAs){
             case 'C': case 'c':
-                Store_System inside = new Store_System();
-                ArrayList<Product> productQuery = inside.getProducts();
+                ArrayList<Product> productQuery = convenience.getProducts();
 
                 System.out.println("Good day, customer! What would you like to buy?\n");
                 System.out.println("Shelf: [1][2][3][4][5][6][7][8][9][10]");
