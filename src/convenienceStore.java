@@ -129,6 +129,16 @@ class Product{
  * @version     %I%
  */
 class Food extends Product{
+
+    /*
+     * Registers the list of Products that're classified as "Food".
+     *
+     * @param  name     the name of the particular product
+     * @param  brand    the brand of the particular product
+     * @param  variant  type of purpose in the particular product
+     * @param  quantity product's current availability stock
+     * @param  price    cost of the price that the customer needs to pay
+     */
     public Food(String name, String brand, String variant, int quantity, float price){
         super(name, brand, variant, quantity, price);
         this.category = "Food";
@@ -142,6 +152,16 @@ class Food extends Product{
  * @version     %I%
  */
 class Beverages extends Product{
+
+    /*
+     * Registers the list of Products that're classified as "Beverages".
+     *
+     * @param  name     the name of the particular product
+     * @param  brand    the brand of the particular product
+     * @param  variant  type of purpose in the particular product
+     * @param  quantity product's current availability stock
+     * @param  price    cost of the price that the customer needs to pay
+     */
     public Beverages(String name, String brand, String variant, int quantity, float price){
         super(name, brand, variant, quantity, price);
         this.category = "Beverages";
@@ -155,6 +175,16 @@ class Beverages extends Product{
  * @version     %I%
  */
 class Toiletries extends Product{
+
+    /*
+     * Registers the list of Products that're classified as "Toiletries".
+     *
+     * @param  name     the name of the particular product
+     * @param  brand    the brand of the particular product
+     * @param  variant  type of purpose in the particular product
+     * @param  quantity product's current availability stock
+     * @param  price    cost of the price that the customer needs to pay
+     */
     public Toiletries(String name, String brand, String variant, int quantity, float price){
         super(name, brand, variant, quantity, price);
         this.category = "Toiletries";
@@ -168,6 +198,16 @@ class Toiletries extends Product{
  * @version     %I%
  */
 class Cleaning_Products extends Product{
+
+    /*
+     * Registers the list of Products that're classified as "Cleaning Products".
+     *
+     * @param  name     the name of the particular product
+     * @param  brand    the brand of the particular product
+     * @param  variant  type of purpose in the particular product
+     * @param  quantity product's current availability stock
+     * @param  price    cost of the price that the customer needs to pay
+     */
     public Cleaning_Products(String name, String brand, String variant, int quantity, float price){
         super(name, brand, variant, quantity, price);
         this.category = "Cleaning_Products";
@@ -181,6 +221,16 @@ class Cleaning_Products extends Product{
  * @version     %I%
  */
 class Medications extends Product{
+
+    /*
+     * Registers the list of Products that're classified as "Medications".
+     *
+     * @param  name     the name of the particular product
+     * @param  brand    the brand of the particular product
+     * @param  variant  type of purpose in the particular product
+     * @param  quantity product's current availability stock
+     * @param  price    cost of the price that the customer needs to pay
+     */
     public Medications(String name, String brand, String variant, int quantity, float price){
         super(name, brand, variant, quantity, price);
         this.category = "Medications";
