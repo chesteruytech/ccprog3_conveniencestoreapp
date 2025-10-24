@@ -428,22 +428,44 @@ public class convenienceStore {
         Beverages C2Yellow = new Beverages("C2Yellow", "C2", "Yellow", 10, 26.50f);
         Beverages CokeRegular = new Beverages("CokeRegular", "Coke", "Regular", 10, 28.50f);
         Beverages CokeZero = new Beverages("CokeZero", "Coke", "Zero", 10, 28.50f);
-        Beverages RoyalClassic = new Beverages("RoyalClassic", "Royal", "Classic", 10, 27.25f);
+        Beverages RoyalClassic = new ("RoyalClassic", "Royal", "Classic", 10, 27.25f);
         Toiletries ColgateTripleAction  = new Toiletries("ColgateTripleAction", "Colgate", "TripleAction", 10, 76.50f);
         Toiletries ColgateAntiCavity  = new Toiletries("ColgateAntiCavity", "Colgate", "AntiCavity", 10, 76.50f);
         Toiletries SafeguardPureWhite = new Toiletries("SafeguardPureWhite", "Safeguard", "PureWhite", 10, 50.25f);
-        Toiletries SafeguardLemon = new Toiletries("SafeguardLemon", "Safeguard", "Lemon", 10, 50.25f);
+        Toiletries SafeguardLemon = new Toiletries("SafeguardLemon", "Safeguard". "Lemon", 10, 50.25f);
         Toiletries OldSpiceOriginal = new Toiletries("OldSpiceOriginal", "OldSpice", "Original", 10, 243.00f);
         Cleaning_Products GreenCrossAlcoholClassic  = new Cleaning_Products("GreenCrossAlcoholClassic", "GreenCross", "AlcoholClassic", 10, 65.75f);
         Cleaning_Products TideDetergent  = new Cleaning_Products("TideDetergent", "Tide", "Detergent", 10, 262.50f);
         Cleaning_Products TideBar  = new Cleaning_Products("TideBar", "Tide", "Bar", 10, 14.70f);
         Cleaning_Products ScotchBriteYellow  = new Cleaning_Products("ScotchBriteYellow", "ScotchBrite", "Yellow", 10, 71.50f);
         Cleaning_Products ScotchBriteBlue  = new Cleaning_Products("ScotchBriteBlue", "ScotchBrite", "Blue", 10, 71.50f);
-        Medications TempraForte = new Medications("TempraForte", "Tempra", "Forte", 10, 12.50f);
-        Medications SolmuxCapsule = new Medications("SolmuxCapsule", "Solmux", "Capsule", 10, 11.25f);
-        Medications Dolfenal = new Medications("DolfenalTablet", "Dolfenal", "Tablet", 10, 15.00f);
-        Medications NoDrowseDecolgen = new Medications("NoDrowseDecolgen", "Decolgen", "NonDrowsyTablet", 10, 13.15f);
-        Medications Trimox = new Medications("Trimox", "Trimox", "Tablet", 10, 28.35f);
+        Medications Paracetamol = new Medications("Paracetamol", "Biogesic" );
+        Medications Benadryl = new Medications("Benadryl", "" );
+        Medications Ibuprofen = new Medications("Ibuprofen", );
+        Medications Aspirin = new Medications("Aspirin",);
+        Medications Acetaminophen = new Medications("Acetaminophen", );
+
+        convenience.stockinitialProducts(Cloud9Classic);
+        convenience.stockinitialProducts(VcutBarbeque);
+        convenience.stockinitialProducts(VcutCheese);
+        convenience.stockinitialProducts(PiattosSourCream);
+        convenience.stockinitialProducts(PiattosCheese);
+        convenience.stockinitialProducts(C2Red);
+        convenience.stockinitialProducts(C2Yellow);
+        convenience.stockinitialProducts(CokeRegular);
+        convenience.stockinitialProducts(CokeZero);
+        convenience.stockinitialProducts(RoyalClassic);
+        convenience.stockinitialProducts(ColgateTripleAction);
+        convenience.stockinitialProducts(ColgateAntiCavity);
+        convenience.stockinitialProducts(SafeguardPureWhite);
+        convenience.stockinitialProducts(SafeguardLemon);
+        convenience.stockinitialProducts(OldSpiceOriginal);
+        convenience.stockinitialProducts(GreenCrossAlcoholClassic);
+        convenience.stockinitialProducts(TideDetergent);
+        convenience.stockinitialProducts(TideBar);
+        convenience.stockinitialProducts(ScotchBriteYellow);
+        convenience.stockinitialProducts(ScotchBriteBlue);
+
 
         // Switch case for the Customer and Employee
         System.out.println("Welcome to U&P's Convenience Store Application!");
