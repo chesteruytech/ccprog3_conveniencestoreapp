@@ -384,6 +384,14 @@ class Store_System{
         this.products = new ArrayList<>();
     }
 
+    public void setEmployees(ArrayList<Employee> employees){
+        this.employees = employees;
+    }
+
+    public void setProducts(ArrayList<Product> products){
+        this.products = products;
+    }
+
     public void addEmployee(Employee employee){
         employees.add(employee);
     }
