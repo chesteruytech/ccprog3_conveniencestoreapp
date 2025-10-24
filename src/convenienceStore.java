@@ -463,6 +463,19 @@ public class convenienceStore {
                         System.out.println("Actions: ");
                         System.out.println("[B]uy Now | [A]dd to Cart | [<] Back");
                         char action = productAction.next().charAt(0);
+                        Checkout checkout = new Checkout();
+
+                        switch(action){
+                            case 'B': case 'b':
+                                checkout.CalculateTotal();
+                                checkout.giveChange();
+                                checkout.printReceipt();
+                                break;
+                            case 'A': case 'a':
+                                break;
+                            case '<':
+                                break;
+                        }
                     }
                 }
                 break;
