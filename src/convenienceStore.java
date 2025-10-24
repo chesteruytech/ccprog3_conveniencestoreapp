@@ -593,19 +593,40 @@ class Store_System{
 //    private Checkout checkout;
 //    private ArrayList<Customer> customers;
 
+    /*
+     * Stores the lists of employees and products for their respective array.
+     */
     public Store_System(){
         this.employees = new ArrayList<>();
         this.products = new ArrayList<>();
     }
 
+    /*
+     * Applies the scanned names and adds it to ArrayList<Employee>
+     * employees.
+     *
+     * @param  employees collection of the names of employees
+     */
     public void setEmployees(ArrayList<Employee> employees){
         this.employees = employees;
     }
 
+    /*
+     * Applies the scanned information and adds it to ArrayList<Product>
+     * products.
+     *
+     * @param  products collection of the information for each product
+     */
     public void setProducts(ArrayList<Product> products){
         this.products = products;
     }
 
+    /*
+     * Registers the employee based on declarations made in
+     * the driver (main) function.
+     *
+     * @param  employee the name of the employee in String
+     */
     public void addEmployee(Employee employee){
         employees.add(employee);
     }
@@ -621,6 +642,9 @@ class Store_System{
 //        }
 //    }
 
+    /*
+     * Retrieves the list of validated employees.
+     */
     public ArrayList<Employee> getEmployees(){
         return employees;
     }
@@ -629,10 +653,19 @@ class Store_System{
 //        return customers;
 //    }
 
+    /*
+     * Retrieves the list of validated products.
+     */
     public ArrayList<Product> getProducts(){
         return products;
     }
 
+    /*
+     * Fills the initial set of products based on declarations made in
+     * the driver (main) function.
+     *
+     * @param  product the information of the Product
+     */
     public void stockInitialProducts(Product product){
         products.add(product);
     }
@@ -650,7 +683,12 @@ class Store_System{
  * @version     %I%
  */
 public class convenienceStore {
-    static void main() {
+
+    /*
+     * Acts as an output of the entire Java code.
+     * This is also known as the driver function.
+     */
+    public static void main() {
         Store_System convenience = new Store_System(); 
         Scanner main = new Scanner(System.in);
         Employee Jose = new Employee("Jose Perez");
